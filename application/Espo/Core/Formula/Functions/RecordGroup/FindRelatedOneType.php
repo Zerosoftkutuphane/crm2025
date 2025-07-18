@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,18 +29,16 @@
 
 namespace Espo\Core\Formula\Functions\RecordGroup;
 
-use Espo\Core\Exceptions\BadRequest;
-use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\ORM\Entity as CoreEntity;
+
 use Espo\ORM\Defs\Params\RelationParam;
 use Espo\ORM\Name\Attribute;
-use Espo\Core\Formula\ArgumentList;
-use Espo\Core\Formula\Exceptions\Error;
-use Espo\Core\Formula\Functions\BaseFunction;
-use Espo\Core\Formula\Functions\RecordGroup\Util\FindQueryUtil;
+use Espo\Core\Formula\{
+    Functions\BaseFunction,
+    ArgumentList,
+};
+
 use Espo\Core\Di;
-use Espo\ORM\Query\Part\Order;
-use Espo\ORM\Type\RelationType;
 
 class FindRelatedOneType extends BaseFunction implements
     Di\EntityManagerAware,
@@ -100,13 +98,7 @@ class FindRelatedOneType extends BaseFunction implements
 
         $relationType = $entity->getRelationParam($link, 'type');
 
-        if (
-            in_array($relationType, [
-                RelationType::BELONGS_TO,
-                RelationType::HAS_ONE,
-                RelationType::BELONGS_TO_PARENT,
-            ])
-        ) {
+        if (in_array($relationType, ['belongsTo', 'hasOne', 'belongsToParent'])) {
             $relatedEntity = $entityManager
                 ->getRDBRepository($entityType)
                 ->getRelation($entity, $link)
@@ -127,7 +119,7 @@ class FindRelatedOneType extends BaseFunction implements
                 $order = $metadata->get(['entityDefs', $entityType, 'collection', 'order']) ?? 'ASC';
             }
         } else {
-            $order = $order ?? Order::ASC;
+            $order = $order ?? 'ASC';
         }
 
         $foreignEntityType = $entity->getRelationParam($link, RelationParam::ENTITY);
@@ -151,11 +143,17 @@ class FindRelatedOneType extends BaseFunction implements
         if (count($args) <= 6) {
             $filter = null;
 
-            if (count($args) === 6) {
+            if (count($args) == 6) {
                 $filter = $this->evaluate($args[5]);
             }
 
-            (new FindQueryUtil())->applyFilter($builder, $filter, 6);
+            if ($filter && !is_string($filter)) {
+                $this->throwError("Bad filter.");
+            }
+
+            if ($filter) {
+                $builder->withPrimaryFilter($filter);
+            }
         } else {
             $i = 5;
 
@@ -169,17 +167,13 @@ class FindRelatedOneType extends BaseFunction implements
             }
         }
 
-        try {
-            $queryBuilder = $builder->buildQueryBuilder();
-        } catch (BadRequest|Forbidden $e) {
-            throw new Error($e->getMessage(), 0, $e);
-        }
+        $queryBuilder = $builder->buildQueryBuilder();
 
         if (!empty($whereClause)) {
             $queryBuilder->where($whereClause);
         }
 
-        if ($relationType === RelationType::HAS_CHILDREN) {
+        if ($relationType === 'hasChildren') {
             $queryBuilder->where([
                 $foreignLink . 'Id' => $entity->getId(),
                 $foreignLink . 'Type' => $entity->getEntityType(),

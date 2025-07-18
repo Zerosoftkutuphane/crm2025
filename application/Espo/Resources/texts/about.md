@@ -1,6 +1,6 @@
 ## EspoCRM – Open Source CRM application
 
-www.espocrm.com
+www.EspoCRM.com
 
 Copyright © 2014-2025 EspoCRM: Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko.
 

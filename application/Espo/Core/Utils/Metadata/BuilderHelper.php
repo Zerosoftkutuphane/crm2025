@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -32,9 +32,6 @@ namespace Espo\Core\Utils\Metadata;
 use Espo\Core\Utils\Util;
 use Espo\ORM\Defs\Params\FieldParam;
 
-/**
- * @internal
- */
 class BuilderHelper
 {
     /**
@@ -62,56 +59,40 @@ class BuilderHelper
     /**
      * Get additional field list based on field definition in metadata 'fields'.
      *
-     * @param string $field
-     * @param array<string, mixed> $params
-     * @param array<string, mixed> $defs
+     * @param string $fieldName
+     * @param array<string, mixed> $fieldParams
+     * @param array<string, mixed> $definitionList
      * @return ?array<string, mixed>
-     * @internal
      */
-    public function getAdditionalFields(string $field, array $params, array $defs): ?array
+    public function getAdditionalFieldList(string $fieldName, array $fieldParams, array $definitionList): ?array
     {
-        if (!$defs) {
+        if (empty($fieldParams['type']) || empty($definitionList)) {
             return null;
         }
 
-        $type = $params['type'] ?? null;
+        $fieldType = $fieldParams['type'];
+        $fieldDefinition = $definitionList[$fieldType] ?? null;
 
-        if (!$type) {
-            return null;
-        }
+        if (
+            isset($fieldDefinition) &&
+            !empty($fieldDefinition['fields']) &&
+            is_array($fieldDefinition['fields'])
+        ) {
+            $copiedParams = array_intersect_key($fieldParams, array_flip($this->copiedDefParams));
 
-        $typeDefs = $defs[$type] ?? null;
+            $additionalFields = [];
 
-        if (!$typeDefs) {
-            return null;
-        }
+            foreach ($fieldDefinition['fields'] as $subFieldName => $subFieldParams) {
+                $namingType = $fieldDefinition['naming'] ?? $this->defaultFieldNaming;
 
-        /** @var ?array<string, mixed> $fields */
-        $fields = $typeDefs['fields'] ?? null;
-        /** @var string $naming */
-        $naming = $typeDefs['naming'] ?? $this->defaultFieldNaming;;
+                $subFieldNaming = Util::getNaming($fieldName, $subFieldName, $namingType);
 
-        if (!is_array($fields)) {
-            return null;
-        }
-
-        $copiedParams = array_intersect_key($params, array_flip($this->copiedDefParams));
-
-        $output = [];
-
-        foreach ($fields as $subField => $subParams) {
-            $subName = Util::getNaming($field, $subField, $naming);
-
-            $output[$subName] = array_merge($copiedParams, $subParams);
-
-            // A trick to allow some fields to be combined with the main field.
-            if (array_key_exists('detailLayoutIncompatibleFieldList', $output[$subName])) {
-                continue;
+                $additionalFields[$subFieldNaming] = array_merge($copiedParams, $subFieldParams);
             }
 
-            $output[$subName]['detailLayoutIncompatibleFieldList'] = [$field];
+            return $additionalFields;
         }
 
-        return $output;
+        return null;
     }
 }

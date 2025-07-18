@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -35,7 +35,6 @@ use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\Exceptions\NotFound;
 use Espo\Core\Record\ServiceContainer;
 use Espo\Core\Utils\Config;
-use Espo\Core\Utils\Metadata;
 use Espo\Entities\Template as TemplateEntity;
 use Espo\ORM\EntityManager;
 use Espo\Tools\Pdf\Data\DataLoaderManager;
@@ -44,15 +43,28 @@ class Service
 {
     private const DEFAULT_ENGINE = 'Dompdf';
 
+    private EntityManager $entityManager;
+    private Acl $acl;
+    private ServiceContainer $serviceContainer;
+    private DataLoaderManager $dataLoaderManager;
+    private Config $config;
+    private Builder $builder;
+
     public function __construct(
-        private EntityManager $entityManager,
-        private Acl $acl,
-        private ServiceContainer $serviceContainer,
-        private DataLoaderManager $dataLoaderManager,
-        private Config $config,
-        private Builder $builder,
-        private Metadata $metadata,
-    ) {}
+        EntityManager $entityManager,
+        Acl $acl,
+        ServiceContainer $serviceContainer,
+        DataLoaderManager $dataLoaderManager,
+        Config $config,
+        Builder $builder
+    ) {
+        $this->entityManager = $entityManager;
+        $this->acl = $acl;
+        $this->serviceContainer = $serviceContainer;
+        $this->dataLoaderManager = $dataLoaderManager;
+        $this->config = $config;
+        $this->builder = $builder;
+    }
 
     /**
      * Generate a PDF.
@@ -85,16 +97,11 @@ class Service
             throw new NotFound("Record not found.");
         }
 
-        $template = $this->entityManager
-            ->getRDBRepositoryByClass(TemplateEntity::class)
-            ->getById($templateId);
+        /** @var ?TemplateEntity $template */
+        $template = $this->entityManager->getEntityById(TemplateEntity::ENTITY_TYPE, $templateId);
 
         if (!$template) {
             throw new NotFound("Template not found.");
-        }
-
-        if (!$template->isActive()) {
-            throw new Forbidden("Template is not active.");
         }
 
         if ($applyAcl && !$this->acl->checkEntityRead($entity)) {
@@ -117,10 +124,6 @@ class Service
         if ($template->getTargetEntityType() !== $entityType) {
             throw new Error("Not matching entity types.");
         }
-
-        $pdfA = $this->metadata->get("pdfDefs.{$entity->getEntityType()}.pdfA") ?? false;
-
-        $params = $params->withPdfA($pdfA);
 
         $data = $this->dataLoaderManager->load($entity, $params, $data);
         $engine = $this->config->get('pdfEngine') ?? self::DEFAULT_ENGINE;

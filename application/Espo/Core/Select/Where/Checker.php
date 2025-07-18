@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -33,9 +33,8 @@ use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\Exceptions\BadRequest;
 use Espo\Core\Acl;
 use Espo\Core\Select\Where\Item\Type;
-use Espo\Entities\Team;
 use Espo\ORM\Defs\Params\RelationParam;
-use Espo\ORM\QueryComposer\Util;
+use Espo\ORM\QueryComposer\BaseQueryComposer as QueryComposer;
 use Espo\ORM\QueryComposer\Util as QueryUtil;
 use Espo\ORM\EntityManager;
 use Espo\ORM\Entity;
@@ -43,8 +42,6 @@ use Espo\ORM\BaseEntity;
 
 /**
  * Checks Where parameters. Throws an exception if anything not allowed is met.
- *
- * @todo Check read access to foreign entity for belongs-to, belongs-to-parent, has-one.
  */
 class Checker
 {
@@ -73,17 +70,8 @@ class Checker
     private $linkTypeList = [
         self::TYPE_IN_CATEGORY,
         self::TYPE_IS_USER_FROM_TEAMS,
-        Type::IS_LINKED_WITH,
-        Type::IS_NOT_LINKED_WITH,
-        Type::IS_LINKED_WITH_ALL,
         Type::IS_LINKED_WITH_ANY,
         Type::IS_LINKED_WITH_NONE,
-    ];
-
-    /** @var string[] */
-    private $linkWithIdsTypeList = [
-        self::TYPE_IN_CATEGORY,
-        self::TYPE_IS_USER_FROM_TEAMS,
         Type::IS_LINKED_WITH,
         Type::IS_NOT_LINKED_WITH,
         Type::IS_LINKED_WITH_ALL,
@@ -92,7 +80,7 @@ class Checker
     public function __construct(
         private string $entityType,
         private EntityManager $entityManager,
-        private Acl $acl,
+        private Acl $acl
     ) {}
 
     /**
@@ -132,13 +120,13 @@ class Checker
         }
 
         if ($attribute) {
-            $argumentList = Util::getAllAttributesFromComplexExpression($attribute);
+            $argumentList = QueryComposer::getAllAttributesFromComplexExpression($attribute);
 
             foreach ($argumentList as $argument) {
                 $this->checkAttributeExistence($argument, $type);
 
                 if ($checkWherePermission) {
-                    $this->checkAttributePermission($argument, $type, $value);
+                    $this->checkAttributePermission($argument, $type);
                 }
             }
         }
@@ -175,9 +163,8 @@ class Checker
 
     /**
      * @throws Forbidden
-     * @throws BadRequest
      */
-    private function checkAttributePermission(string $attribute, string $type, mixed $value): void
+    private function checkAttributePermission(string $attribute, string $type): void
     {
         $entityType = $this->entityType;
 
@@ -189,7 +176,7 @@ class Checker
                 throw new Forbidden("Bad relation '$link' in where.");
             }
 
-            $foreignEntityType = $this->getRelationEntityType($this->getSeed(), $link);
+            $foreignEntityType = $this->getRelationParam($this->getSeed(), $link, RelationParam::ENTITY);
 
             if (!$foreignEntityType) {
                 throw new Forbidden("Bad relation '$link' in where.");
@@ -203,14 +190,32 @@ class Checker
             }
 
             if (in_array($attribute, $this->acl->getScopeForbiddenAttributeList($foreignEntityType))) {
-                throw new Forbidden("Forbidden attribute '$link.$attribute' in where.");
+                throw new Forbidden("Forbidden attribute '$link.{$attribute}' in where.");
             }
 
             return;
         }
 
         if (in_array($type, $this->linkTypeList)) {
-            $this->checkLink($type, $entityType, $attribute, $value);
+            $link = $attribute;
+
+            if (!$this->getSeed()->hasRelation($link)) {
+                throw new Forbidden("Bad relation '$link' in where.");
+            }
+
+            $foreignEntityType = $this->getRelationParam($this->getSeed(), $link, RelationParam::ENTITY);
+
+            if (!$foreignEntityType) {
+                throw new Forbidden("Bad relation '$link' in where.");
+            }
+
+            if (
+                in_array($link, $this->acl->getScopeForbiddenFieldList($entityType)) ||
+                !$this->acl->checkScope($foreignEntityType) ||
+                in_array($link, $this->acl->getScopeForbiddenLinkList($entityType))
+            ) {
+                throw new Forbidden("Forbidden relation '$link' in where.");
+            }
 
             return;
         }
@@ -227,10 +232,10 @@ class Checker
         return $this->seed;
     }
 
-    private function getRelationEntityType(Entity $entity, string $relation): mixed
+    private function getRelationParam(Entity $entity, string $relation, string $param): mixed
     {
         if ($entity instanceof BaseEntity) {
-            return $entity->getRelationParam($relation, RelationParam::ENTITY);
+            return $entity->getRelationParam($relation, $param);
         }
 
         $entityDefs = $this->entityManager
@@ -241,67 +246,6 @@ class Checker
             return null;
         }
 
-        return $entityDefs->getRelation($relation)->getParam(RelationParam::ENTITY);
-    }
-
-    /**
-     * @throws BadRequest
-     * @throws Forbidden
-     */
-    private function checkLink(string $type, string $entityType, string $link, mixed $value): void
-    {
-        if (!$this->getSeed()->hasRelation($link)) {
-            throw new Forbidden("Bad relation '$link' in where.");
-        }
-
-        $foreignEntityType = $this->getRelationEntityType($this->getSeed(), $link);
-
-        if (!$foreignEntityType) {
-            throw new Forbidden("Bad relation '$link' in where.");
-        }
-
-        if ($type === self::TYPE_IS_USER_FROM_TEAMS) {
-            $foreignEntityType = Team::ENTITY_TYPE;
-        }
-
-        if (
-            in_array($link, $this->acl->getScopeForbiddenFieldList($entityType)) ||
-            !$this->acl->checkScope($foreignEntityType) ||
-            in_array($link, $this->acl->getScopeForbiddenLinkList($entityType))
-        ) {
-            throw new Forbidden("Forbidden relation '$link' in where.");
-        }
-
-        if (!in_array($type, $this->linkWithIdsTypeList)) {
-            return;
-        }
-
-        if ($value === null) {
-            return;
-        }
-
-        if (!is_array($value)) {
-            $value = [$value];
-        }
-
-        foreach ($value as $it) {
-            if (!is_string($it)) {
-                throw new BadRequest("Bad where item. Non-string ID.");
-            }
-        }
-
-        // @todo Use the Select Builder instead. Check the result count equal the input IDs count.
-
-        foreach ($value as $id) {
-            $entity = $this->entityManager->getEntityById($foreignEntityType, $id);
-
-            if (!$entity) {
-                throw new Forbidden("Record '$foreignEntityType' `$id` not found.");
-            }
-
-            if (!$this->acl->checkEntityRead($entity)) {
-                throw new Forbidden("No access to '$foreignEntityType' `$id`.");
-            }
-        }
+        return $entityDefs->getRelation($relation)->getParam($param);
     }
 }

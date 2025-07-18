@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,6 @@ namespace Espo\Tools\EmailNotification;
 
 use Espo\Core\Field\LinkParent;
 use Espo\Core\Name\Field;
-use Espo\Core\Name\Link;
 use Espo\Core\Notification\EmailNotificationHandler;
 use Espo\Core\Mail\SenderParams;
 use Espo\Core\Utils\Config\ApplicationConfig;
@@ -68,8 +67,6 @@ class Processor
 {
     private const HOURS_THRESHOLD = 5;
     private const PROCESS_MAX_COUNT = 200;
-
-    private const TYPE_STATUS = 'Status';
 
     private ?Htmlizer $htmlizer = null;
 
@@ -212,16 +209,17 @@ class Processor
 
     protected function getNotificationQueryBuilderNote(): SelectBuilder
     {
+        $noteNotificationTypeList = $this->config->get('streamEmailNotificationsTypeList', []);
+
         $builder = $this->entityManager
             ->getQueryBuilder()
             ->select()
             ->from(Notification::ENTITY_TYPE)
             ->join(Note::ENTITY_TYPE, 'note', ['note.id:' => 'relatedId'])
-            ->join('user')
             ->where([
                 'type' => Notification::TYPE_NOTE,
                 'relatedType' => Note::ENTITY_TYPE,
-                'note.type' => $this->getNoteNotificationTypeList(),
+                'note.type' => $noteNotificationTypeList,
             ]);
 
         $entityList = $this->config->get('streamEmailNotificationsEntityList');
@@ -376,34 +374,43 @@ class Processor
 
     protected function processNotificationNote(Notification $notification): void
     {
-        if (
-            !$notification->getRelated() ||
-            $notification->getRelated()->getEntityType() !== Note::ENTITY_TYPE
-        ) {
+        if (!$notification->getRelated()) {
             return;
         }
 
-        $noteId = $notification->getRelated()->getId();
+        if ($notification->getRelated()->getEntityType() !== Note::ENTITY_TYPE) {
+            return;
+        }
 
-        $note = $this->entityManager->getRDBRepositoryByClass(Note::class)->getById($noteId);
+        /** @var ?Note $note */
+        $note = $this->entityManager->getEntityById(Note::ENTITY_TYPE, $notification->getRelated()->getId());
 
-        if (
-            !$note ||
-            !in_array($note->getType(), $this->getNoteNotificationTypeList()) ||
-            !$notification->getUserId()
-        ) {
+        if (!$note) {
+            return;
+        }
+
+        $noteNotificationTypeList = $this->config->get('streamEmailNotificationsTypeList', []);
+
+        if (!in_array($note->getType(), $noteNotificationTypeList)) {
+            return;
+        }
+
+        if (!$notification->getUserId()) {
             return;
         }
 
         $userId = $notification->getUserId();
 
-        $user = $this->entityManager->getRDBRepositoryByClass(User::class)->getById($userId);
+        /** @var ?User $user */
+        $user = $this->entityManager->getEntityById(User::ENTITY_TYPE, $userId);
 
         if (!$user) {
             return;
         }
 
-        if (!$user->getEmailAddress()) {
+        $emailAddress = $user->getEmailAddress();
+
+        if (!$emailAddress) {
             return;
         }
 
@@ -425,7 +432,7 @@ class Processor
             return;
         }
 
-        if ($type === Note::TYPE_UPDATE && isset($note->getData()->value)) {
+        if ($type === Note::TYPE_STATUS) {
             $this->processNotificationNoteStatus($note, $user);
 
             return;
@@ -657,16 +664,18 @@ class Processor
 
         $noteData = $note->getData();
 
-        $value = $noteData->value ?? null;
-        $field = $this->metadata->get("scopes.$parentType.statusField");
-
-        if ($value === null || !$field || !is_string($field)) {
+        if (!isset($noteData->value) || !isset($note->field)) {
             return;
         }
 
-        $data['value'] = $value;
-        $data['field'] = $field;
-        $data['valueTranslated'] = $this->language->translateOption($value, $field, $parentType);
+        $data['value'] = $noteData->value;
+        $data['field'] = $field = $noteData->field;
+
+        if (!is_string($field)) {
+            return;
+        }
+
+        $data['valueTranslated'] = $this->language->translateOption($data['value'], $data['field'], $parentType);
         $data['fieldTranslated'] = $this->language->translateLabel($field, 'fields', $parentType);
         $data['fieldTranslatedLowerCase'] = Util::mbLowerCaseFirst($data['fieldTranslated']);
 
@@ -678,22 +687,23 @@ class Processor
         $subjectTpl = str_replace(["\n", "\r"], '', $subjectTpl);
 
         $subject = $this->getHtmlizer()->render(
-            entity: $note,
-            template: $subjectTpl,
-            cacheId: 'note-status-email-subject',
-            additionalData: $data,
-            skipLinks: true,
+            $note,
+            $subjectTpl,
+            'note-status-email-subject',
+            $data,
+            true
         );
 
         $body = $this->getHtmlizer()->render(
-            entity: $note,
-            template: $bodyTpl,
-            cacheId: 'note-status-email-body',
-            additionalData: $data,
-            skipLinks: true,
+            $note,
+            $bodyTpl,
+            'note-status-email-body',
+            $data,
+            true
         );
 
-        $email = $this->entityManager->getRDBRepositoryByClass(Email::class)->getNew();
+        /** @var Email $email */
+        $email = $this->entityManager->getNewEntity(Email::ENTITY_TYPE);
 
         $email
             ->setSubject($subject)
@@ -714,10 +724,10 @@ class Processor
             $senderParams = $handler->getSenderParams($parent, $user) ?? $senderParams;
         }
 
-        $sender = $this->emailSender->withParams($senderParams);
-
         try {
-            $sender->send($email);
+            $this->emailSender
+                ->withParams($senderParams)
+                ->send($email);
         } catch (Exception $e) {
             $this->log->error("Email notification: {$e->getMessage()}", ['exception' => $e]);
         }
@@ -756,7 +766,7 @@ class Processor
         }
 
         $emailAddresses = $this->entityManager
-            ->getRelation($user, Link::EMAIL_ADDRESSES)
+            ->getRelation($user, 'emailAddresses')
             ->find();
 
         foreach ($emailAddresses as $ea) {
@@ -871,22 +881,5 @@ class Processor
     {
         /** @var PortalRepository */
         return $this->entityManager->getRepository(Portal::ENTITY_TYPE);
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getNoteNotificationTypeList(): array
-    {
-        /** @var string[] $output */
-        $output = $this->config->get('streamEmailNotificationsTypeList', []);
-
-        if (in_array(self::TYPE_STATUS, $output)) {
-            $output[] = Note::TYPE_UPDATE;
-
-            $output = array_values(array_filter($output, fn ($v) => $v !== self::TYPE_STATUS));
-        }
-
-        return $output;
     }
 }

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Classes\Select\Email\Where\ItemConverters;
 
-use Espo\Core\Name\Link;
 use Espo\Core\Select\Where\ItemConverter;
 use Espo\Core\Select\Where\Item;
 
@@ -238,7 +237,8 @@ class InFolder implements ItemConverter
     protected function getEmailAddressIdList(): array
     {
         $emailAddressList = $this->entityManager
-            ->getRelation($this->user, Link::EMAIL_ADDRESSES)
+            ->getRDBRepository(User::ENTITY_TYPE)
+            ->getRelation($this->user, 'emailAddresses')
             ->select([Attribute::ID])
             ->find();
 

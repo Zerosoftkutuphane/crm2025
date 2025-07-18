@@ -190,7 +190,7 @@
     "userHasNoEmailAddress": "Este usuario no tiene correo de contacto.",
     "newVersionIsAvailable": "Hay una nueva versión disponible de EspoCRM. ({latestVersion}).",
     "uninstallConfirmation": "¿Realmente quiere desinstalar esta extensión?",
-    "cronIsNotConfigured": "No se están ejecutando las tareas programadas. Por lo cual los correos enviados, notificaciones y alarmas no están funcionando.  Por favor siga las {instructions}\n(https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab) para activar los cron jobs. ",
+    "cronIsNotConfigured": "No se están ejecutando las tareas programadas. Por lo cual los correos enviados, notificaciones y alarmas no están funcionando.  Por favor siga las {instructions}\n(https://www.EspoCRM.com/documentation/administration/server-configuration/#user-content-setup-a-crontab) para activar los cron jobs. ",
     "newExtensionVersionIsAvailable": "Nueva versión {latestVersion} disponible para {extensionName}. "
   },
   "descriptions": {

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,6 @@
 namespace Espo\Classes\FieldProcessing\Email;
 
 use Espo\Core\Name\Field;
-use Espo\Core\Name\Link;
 use Espo\ORM\Entity;
 use Espo\ORM\Name\Attribute;
 use Espo\Repositories\EmailAddress as EmailAddressRepository;
@@ -45,15 +44,17 @@ use Espo\Entities\User;
  */
 class StringDataLoader implements Loader
 {
-    private const LINK_EMAIL_ADDRESSES = Link::EMAIL_ADDRESSES;
+    private EntityManager $entityManager;
+    private User $user;
 
     /** @var array<string, string> */
     private $fromEmailAddressNameCache = [];
 
-    public function __construct(
-        private EntityManager $entityManager,
-        private User $user
-    ) {}
+    public function __construct(EntityManager $entityManager, User $user)
+    {
+        $this->entityManager = $entityManager;
+        $this->user = $user;
+    }
 
     public function process(Entity $entity, Params $params): void
     {
@@ -62,7 +63,8 @@ class StringDataLoader implements Loader
         $userEmailAddressIdList = [];
 
         $emailAddressCollection = $this->entityManager
-            ->getRelation($this->user, self::LINK_EMAIL_ADDRESSES)
+            ->getRDBRepository(User::ENTITY_TYPE)
+            ->getRelation($this->user, 'emailAddresses')
             ->select([Attribute::ID])
             ->find();
 

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Core\Portal;
 
-use Espo\Core\Application\ApplicationParams;
 use Espo\Entities\Portal;
 use Espo\ORM\EntityManager;
 use Espo\Core\Exceptions\Forbidden;
@@ -48,25 +47,22 @@ class Application extends BaseApplication
      * @throws NotFound
      * @noinspection PhpMissingParentConstructorInspection
      */
-    public function __construct(
-        ?string $portalId,
-        ?ApplicationParams $params = null,
-    ) {
+    public function __construct(?string $portalId)
+    {
         date_default_timezone_set('UTC');
 
-        $this->initContainer($params);
+        $this->initContainer();
         $this->initPortal($portalId);
         $this->initAutoloads();
         $this->initPreloads();
     }
 
-    protected function initContainer(?ApplicationParams $params): void
+    protected function initContainer(): void
     {
         $container = (new ContainerBuilder())
             ->withConfigClassName(Config::class)
             ->withContainerClassName(PortalContainer::class)
             ->withContainerConfigurationClassName(PortalContainerConfiguration::class)
-            ->withParams($params)
             ->build();
 
         if (!$container instanceof PortalContainer) {

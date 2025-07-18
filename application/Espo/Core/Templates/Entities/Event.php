@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,8 +29,6 @@
 
 namespace Espo\Core\Templates\Entities;
 
-use Espo\Core\Field\Link;
-use Espo\Core\Name\Field;
 use Espo\Core\ORM\Entity;
 
 class Event extends Entity
@@ -49,14 +47,5 @@ class Event extends Entity
     public function setStatus(string $status): self
     {
         return $this->set('status', $status);
-    }
-
-    /**
-     * @since 9.2.0
-     */
-    public function getAssignedUser(): ?Link
-    {
-        /** @var ?Link */
-        return $this->getValueObject(Field::ASSIGNED_USER);
     }
 }

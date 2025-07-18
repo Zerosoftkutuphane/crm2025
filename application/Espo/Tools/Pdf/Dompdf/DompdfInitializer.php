@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -32,7 +32,6 @@ namespace Espo\Tools\Pdf\Dompdf;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Espo\Core\Utils\Config;
-use Espo\Tools\Pdf\Params;
 use Espo\Tools\Pdf\Template;
 
 class DompdfInitializer
@@ -42,21 +41,16 @@ class DompdfInitializer
     private const PT = 2.83465;
 
     public function __construct(
-        private Config $config,
+        private Config $config
     ) {}
 
-    public function initialize(Template $template, Params $params): Dompdf
+    public function initialize(Template $template): Dompdf
     {
         $options = new Options();
 
-        $options->setIsPdfAEnabled($params->isPdfA());
         $options->setDefaultFont($this->getFontFace($template));
 
         $pdf = new Dompdf($options);
-
-        if ($params->isPdfA()) {
-            $this->mapFonts($pdf);
-        }
 
         $size = $template->getPageFormat() === Template::PAGE_FORMAT_CUSTOM ?
             [0.0, 0.0, $template->getPageWidth() * self::PT, $template->getPageHeight() * self::PT] :
@@ -77,20 +71,5 @@ class DompdfInitializer
             $template->getFontFace() ??
             $this->config->get('pdfFontFace') ??
             $this->defaultFontFace;
-    }
-
-    private function mapFonts(Dompdf $pdf): void
-    {
-        // Fonts are included in PDF/A. Map standard fonts to open source analogues.
-        $fontMetrics = $pdf->getFontMetrics();
-
-        $fontMetrics->setFontFamily('courier', $fontMetrics->getFamily('DejaVu Sans Mono'));
-        $fontMetrics->setFontFamily('fixed', $fontMetrics->getFamily('DejaVu Sans Mono'));
-        $fontMetrics->setFontFamily('helvetica', $fontMetrics->getFamily('DejaVu Sans'));
-        $fontMetrics->setFontFamily('monospace', $fontMetrics->getFamily('DejaVu Sans Mono'));
-        $fontMetrics->setFontFamily('sans-serif', $fontMetrics->getFamily('DejaVu Sans'));
-        $fontMetrics->setFontFamily('serif', $fontMetrics->getFamily('DejaVu Serif'));
-        $fontMetrics->setFontFamily('times', $fontMetrics->getFamily('DejaVu Serif'));
-        $fontMetrics->setFontFamily('times-roman', $fontMetrics->getFamily('DejaVu Serif'));
     }
 }

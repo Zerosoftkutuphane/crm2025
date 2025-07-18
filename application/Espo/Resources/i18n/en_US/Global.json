@@ -390,7 +390,6 @@
         "massRemoveResult": "{count} records have been removed",
         "massRemoveResultSingle": "{count} record has been removed",
         "noRecordsRemoved": "No records were removed",
-        "changesLossConfirmation": "Unsaved changes will be lost. Are you sure?",
         "clickToRefresh": "Click to refresh",
         "writeYourCommentHere": "Write your comment here",
         "writeMessageToUser": "Write a message to {user}",
@@ -454,8 +453,7 @@
     "presetFilters": {
         "followed": "Followed",
         "all": "All",
-        "starred": "Starred",
-        "active": "Active"
+        "starred": "Starred"
     },
     "massActions": {
         "delete": "Delete",

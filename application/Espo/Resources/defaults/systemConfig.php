@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -284,9 +284,9 @@ return [
         'post_max_size' => '20M',
         'upload_max_filesize' => '20M',
     ],
-    'requiredMysqlVersion' => '8.0.0',
+    'requiredMysqlVersion' => '5.7.0',
     'recommendedMysqlParams' => [],
-    'requiredMariadbVersion' => '10.3.0',
+    'requiredMariadbVersion' => '10.2.2',
     'requiredPostgresqlVersion' => '15.0',
     'recommendedMariadbParams' => [],
     /** Max execution time (in seconds) allocated for a single job. If exceeded then set to Failed.*/

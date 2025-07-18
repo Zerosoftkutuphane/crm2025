@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -35,7 +35,6 @@ use Espo\Core\Action\Params;
 use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\Exceptions\NotFound;
 use Espo\Core\Name\Field;
-use Espo\Core\Name\Link;
 use Espo\Core\ORM\EntityManager;
 use Espo\Core\ORM\Type\FieldType;
 use Espo\Core\Record\ActionHistory\Action;
@@ -219,7 +218,7 @@ class Merger
 
         /** @var iterable<EmailAddress> $collection */
         $collection = $this->entityManager
-            ->getRelation($entity, Link::EMAIL_ADDRESSES)
+            ->getRelation($entity, 'emailAddresses')
             ->find();
 
         foreach ($collection as $entity) {
@@ -288,7 +287,7 @@ class Merger
         $entityDefs = $this->entityManager->getDefs()->getEntity($entityType);
 
         $ignoreList = [
-            Link::EMAIL_ADDRESSES,
+            'emailAddresses',
             'phoneNumbers',
         ];
 

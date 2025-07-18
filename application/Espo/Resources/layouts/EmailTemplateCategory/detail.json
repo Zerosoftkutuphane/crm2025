@@ -1,5 +1,6 @@
 [
     {
+        "label": "",
         "rows": [
             [
                 {
@@ -11,7 +12,14 @@
             ],
             [
                 {
-                    "name": "description"
+                    "name": "order"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "description",
+                    "fullWidth": true
                 }
             ]
         ]

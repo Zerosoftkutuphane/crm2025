@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -60,7 +60,7 @@ class QueryBuilder
      * * `select([$expr1, $expr2, ...])`
      * * `select(string $expression, string $alias)`
      *
-     * @param Selection|Selection[]|Expression|string[]|string $select
+     * @param Selection|Selection[]|Expression|string $select
      * An array of expressions or one expression.
      * @param ?string $alias An alias. Actual if the first parameter is not an array.
      */

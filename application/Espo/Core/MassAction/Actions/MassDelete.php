@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Core\MassAction\Actions;
 
-use Espo\Core\ORM\Repository\Option\RemoveOption;
 use Espo\Core\ORM\Repository\Option\SaveOption;
 use Espo\Core\Record\ActionHistory\Action;
 use Espo\Core\Utils\Log;
@@ -93,9 +92,8 @@ class MassDelete implements MassAction
 
             try {
                 $repository->remove($entity, [
-                    RemoveOption::MASS_REMOVE => true,
-                    RemoveOption::MODIFIED_BY_ID => $this->user->getId(),
-                    SaveOption::MASS_UPDATE => true, // Legacy.
+                    SaveOption::MASS_UPDATE => true,
+                    SaveOption::MODIFIED_BY_ID => $this->user->getId(),
                 ]);
             } catch (Exception $e) {
                 $this->log->info("Mass delete exception. Record: {id}.", [
@@ -106,6 +104,7 @@ class MassDelete implements MassAction
                 continue;
             }
 
+            /** @var string $id */
             $id = $entity->getId();
 
             $ids[] = $id;

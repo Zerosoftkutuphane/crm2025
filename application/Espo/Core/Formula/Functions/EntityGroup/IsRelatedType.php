@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,18 +29,25 @@
 
 namespace Espo\Core\Formula\Functions\EntityGroup;
 
-use Espo\Core\Formula\Exceptions\Error;
-use Espo\Core\Formula\Functions\Base;
+use Espo\Core\Exceptions\Error;
+
+use Espo\ORM\EntityManager;
 
 use Espo\Core\Di;
 
-class IsRelatedType extends Base implements
+class IsRelatedType extends \Espo\Core\Formula\Functions\Base implements
     Di\EntityManagerAware
 {
     use Di\EntityManagerSetter;
 
     /**
+     * @var EntityManager
+     */
+    protected $entityManager;
+
+    /**
      * @return bool
+     * @throws \Espo\Core\Formula\Exceptions\Error
      * @throws Error
      */
     public function process(\stdClass $item)

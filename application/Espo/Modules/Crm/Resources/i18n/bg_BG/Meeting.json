@@ -16,8 +16,7 @@
     "dateStartDate": "Начална дата (цял ден)",
     "dateEndDate": "Крайна дата (цял ден)",
     "isAllDay": "Цял ден",
-    "sourceEmail": "Източник на имейла",
-    "joinUrl": "URL адрес за присъединяване"
+    "sourceEmail": "Източник на имейла"
   },
   "options": {
     "status": {

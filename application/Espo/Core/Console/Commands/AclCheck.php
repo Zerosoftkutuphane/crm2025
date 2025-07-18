@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,8 +29,6 @@
 
 namespace Espo\Core\Console\Commands;
 
-use Espo\Core\Exceptions\Forbidden;
-use Espo\Core\Exceptions\NotFound;
 use Espo\Entities\User;
 use Espo\ORM\EntityManager;
 use Espo\Core\AclManager;
@@ -53,47 +51,58 @@ class AclCheck implements Command
 
     public function run(Params $params, IO $io): void
     {
-        $userId = $params->getOption('userId');
-        $scope = $params->getOption('scope');
-        $id = $params->getOption('id');
+        $options = $params->getOptions();
+
+        $userId = $options['userId'] ?? null;
+        $scope = $options['scope'] ?? null;
+        $id = $options['id'] ?? null;
+
         /** @var Table::ACTION_*|null $action */
-        $action = $params->getOption('action');
+        $action = $options['action'] ?? null;
 
-        $io->setExitStatus(1);
-
-        if (!$userId || !$scope) {
+        if (!$userId || !$scope || !$id) {
             return;
         }
 
-        if ($params->hasOption('id') && !$id) {
-            return;
-        }
-
+        $container = $this->container;
         $entityManager = $this->container->getByClass(EntityManager::class);
 
-        $user = $entityManager->getRDBRepositoryByClass(User::class)->getById($userId);
+        /** @var ?User $user */
+        $user = $entityManager->getEntityById(User::ENTITY_TYPE, $userId);
 
         if (!$user) {
             return;
         }
 
         if ($user->isPortal()) {
-            $this->processPortal(
-                io: $io,
-                userId: $userId,
-                scope: $scope,
-                action: $action,
-                id: $id,
-                user: $user,
-            );
-        }
+            $portalIdList = $user->getLinkMultipleIdList('portals');
 
-        if (!$this->check($user, $scope, $id, $action, $this->container)) {
+            foreach ($portalIdList as $portalId) {
+                $application = new PortalApplication($portalId);
+                $containerPortal = $application->getContainer();
+                $entityManager = $containerPortal->getByClass(EntityManager::class);
+
+                $user = $entityManager->getEntityById(User::ENTITY_TYPE, $userId);
+
+                if (!$user) {
+                    return;
+                }
+
+                $result = $this->check($user, $scope, $id, $action, $containerPortal);
+
+                if ($result) {
+                    $io->write('true');
+
+                    return;
+                }
+            }
+
             return;
         }
 
-        $io->setExitStatus(0);
-        $io->write('true');
+        if ($this->check($user, $scope, $id, $action, $container)) {
+            $io->write('true');
+        }
     }
 
     /**
@@ -103,16 +112,10 @@ class AclCheck implements Command
     private function check(
         User $user,
         string $scope,
-        ?string $id,
+        string $id,
         ?string $action,
         Container $container
     ): bool {
-
-        if (!$id) {
-            $aclManager = $container->getByClass(AclManager::class);
-
-            return $aclManager->check($user, $scope, $action);
-        }
 
         $entityManager = $container->getByClass(EntityManager::class);
 
@@ -125,49 +128,5 @@ class AclCheck implements Command
         $aclManager = $container->getByClass(AclManager::class);
 
         return $aclManager->check($user, $entity, $action);
-    }
-
-    /**
-     * @param Table::ACTION_*|null $action
-     * @noinspection PhpDocSignatureInspection
-     */
-    private function processPortal(
-        IO $io,
-        string $userId,
-        string $scope,
-        ?string $action,
-        ?string $id,
-        User $user,
-    ): void {
-
-        $portalIds = $user->getLinkMultipleIdList('portals');
-
-        foreach ($portalIds as $portalId) {
-            try {
-                $application = new PortalApplication($portalId);
-            } catch (Forbidden|NotFound) {
-                return;
-            }
-
-            $containerPortal = $application->getContainer();
-            $entityManager = $containerPortal->getByClass(EntityManager::class);
-
-            $user = $entityManager->getRDBRepositoryByClass(User::class)->getById($userId);
-
-            if (!$user) {
-                return;
-            }
-
-            $result = $this->check($user, $scope, $id, $action, $containerPortal);
-
-            if (!$result) {
-                continue;
-            }
-
-            $io->setExitStatus(0);
-            $io->write('true');
-
-            return;
-        }
     }
 }

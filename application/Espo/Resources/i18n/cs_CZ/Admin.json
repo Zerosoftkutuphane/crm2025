@@ -102,7 +102,7 @@
     "uninstallConfirmation": "Opravdu odinstalovat vybrané rozšíření?",
     "upgradeVersion": "EspoCRM bude upgradováno na verzi <strong>{version}</strong>. Toto může chvíli trvat.",
     "upgradeDone": "EspoCRM bylo upgradováno na verzi <strong>{version}</strong>.",
-    "downloadUpgradePackage": "Stáhnout upgradovací balíčky na <a href=\"https://sourceforge.net/projects/espocrm/files/Upgrades/\">tomto odkaze</a>."
+    "downloadUpgradePackage": "Stáhnout upgradovací balíčky na <a href=\"https://sourceforge.net/projects/EspoCRM/files/Upgrades/\">tomto odkaze</a>."
   },
   "descriptions": {
     "settings": "Systémová nastavení aplikace.",

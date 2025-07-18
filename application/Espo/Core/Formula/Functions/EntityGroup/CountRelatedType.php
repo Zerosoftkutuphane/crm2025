@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -32,18 +32,22 @@ namespace Espo\Core\Formula\Functions\EntityGroup;
 use Espo\Core\Exceptions\BadRequest;
 use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\Formula\Exceptions\Error;
-use Espo\Core\Formula\Functions\Base;
-use Espo\Core\Formula\Functions\RecordGroup\Util\FindQueryUtil;
 use Espo\ORM\Defs\Params\RelationParam;
+use Espo\ORM\EntityManager;
 use Espo\Core\Di;
 use stdClass;
 
-class CountRelatedType extends Base implements
+class CountRelatedType extends \Espo\Core\Formula\Functions\Base implements
     Di\EntityManagerAware,
     Di\SelectBuilderFactoryAware
 {
     use Di\EntityManagerSetter;
     use Di\SelectBuilderFactorySetter;
+
+    /**
+     * @var EntityManager
+     */
+    protected $entityManager;
 
     /**
      * @return int
@@ -82,7 +86,7 @@ class CountRelatedType extends Base implements
             ->from($foreignEntityType);
 
         if ($filter) {
-            (new FindQueryUtil())->applyFilter($builder, $filter, 2);
+              $builder->withPrimaryFilter($filter);
         }
 
         try {

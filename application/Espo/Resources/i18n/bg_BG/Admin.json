@@ -17,7 +17,7 @@
     "Upgrade": "Обновяване",
     "Clear Cache": "Изтрий кеша",
     "Rebuild": "Оптимизиране",
-    "Teams": "Екипи",
+    "Teams": "Отдели",
     "Roles": "Роли",
     "Portal": "Портал",
     "Portals": "Портали",
@@ -86,8 +86,7 @@
     "Setup": "Инсталация",
     "App Log": "Логове на приложението",
     "Address Countries": "Списък с държави",
-    "App Secrets": "API кодове в приложението",
-    "OAuth Providers": "Доставчици на OAuth"
+    "App Secrets": "API кодове в приложението"
   },
   "layouts": {
     "list": "Лист",
@@ -133,8 +132,7 @@
     "datetimeOptional": "Дата / Дата-час",
     "checklist": "Чеклист",
     "barcode": "Баркод",
-    "urlMultiple": "Множество URL адреси",
-    "base": "Базово"
+    "urlMultiple": "Множество URL адреси"
   },
   "fields": {
     "type": "Тип",
@@ -213,8 +211,7 @@
     "activeOptions": "Активни опции",
     "labelType": "Тип заглавие",
     "preview": "Преглед",
-    "attachmentField": "Поле за прикачени файлове",
-    "dynamicLogicReadOnlySaved": "Условия за запазено състояние, които правят полето само за четене"
+    "attachmentField": "Поле за прикачени файлове"
   },
   "messages": {
     "selectEntityType": "Изберете вида обект от лявото меню.",
@@ -227,14 +224,14 @@
     "thousandSeparatorEqualsDecimalMark": "Знакът за разделител на хилядите не може да бъде същият като знака на десетичния знак.",
     "userHasNoEmailAddress": "Потребителят няма имейл адрес.",
     "uninstallConfirmation": "Наистина ли искате да деинсталирате разширението?",
-    "cronIsNotConfigured": "Планираните задачи не се изпълняват. Следователно входящите имейли, известията и напомнянията не работят. Моля, следвайте [инструкциите](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab), за да настроите cron задача.",
+    "cronIsNotConfigured": "Планираните задачи не се изпълняват. Следователно входящите имейли, известията и напомнянията не работят. Моля, следвайте [инструкциите](https://www.EspoCRM.com/documentation/administration/server-configuration/#user-content-setup-a-crontab), за да настроите cron задача.",
     "newExtensionVersionIsAvailable": "Налична е нова версия за {extensionName} - {latestVersion}.",
     "upgradeVersion": "EspoCRM ще бъде надстроен до версия **{version}**. Моля, бъдете търпеливи, тъй като това може да отнеме известно време.",
     "upgradeDone": "EspoCRM е обновен до версия **{version}**.",
     "downloadUpgradePackage": "Изтегляне на обновления от [тук]({url}).",
     "upgradeInfo": "Проверете [документацията]({url}) за това как да обновите своята инстанция на EspoCRM.",
     "upgradeRecommendation": "Този начин на обновяване не се препоръчва. По-добре е да обновите от CLI.",
-    "newVersionIsAvailable": "Налична е нова версия на EspoCRM {latestVersion}. Моля, следвайте [инструкциите](https://www.espocrm.com/documentation/administration/upgrading/), за да обновите вашата инстанция.",
+    "newVersionIsAvailable": "Налична е нова версия на EspoCRM {latestVersion}. Моля, следвайте [инструкциите](https://www.EspoCRM.com/documentation/administration/upgrading/), за да обновите вашата инстанция.",
     "formulaFunctions": "Още функции можете да намерите в [документацията]({documentationUrl}).",
     "rebuildRequired": "Трябва да регенерирате кеша на системата от CLI.",
     "cronIsDisabled": "Cron е деактивиран, приложението не работи напълно. Активирайте cron в [настройки](#Admin/settings).",
@@ -281,7 +278,7 @@
     "dashboardTemplates": "Прилагане на шаблон върху потребители.",
     "phoneNumbers": "Всички телефонни номера, съхранени в системата.",
     "emailAddresses": "Всички имейл адреси, съхранявани в системата.",
-    "layoutSets": "Колекции от оформления, които могат да бъдат приложени на екипи, потребители или портали.",
+    "layoutSets": "Колекции от оформления, които могат да бъдат приложени на отдели, потребители или портали.",
     "jobsSettings": "Настройки за обработка на системни задачи. Задачите изпълняват други действия във фонов режим.",
     "sms": "SMS настройки.",
     "formulaSandbox": "Може да пишете и тествате скриптове за формули, преди да ги приложите в системата.",
@@ -291,8 +288,7 @@
     "appLog": "Логове на приложението.",
     "addressCountries": "Държави, налични в адресни полета.",
     "appSecrets": "Съхранявайте чувствителна информация като API ключове, пароли и други тайни.",
-    "leadCapture": "Линкове за получаване на потенциални клиенти и уеб форми.",
-    "oAuthProviders": "OAuth доставчици за интеграции."
+    "leadCapture": "Линкове за получаване на потенциални клиенти и уеб форми."
   },
   "options": {
     "previewSize": {
@@ -341,9 +337,5 @@
     "labelManager": "език,превод",
     "appSecrets": "ключ, ключове, парола",
     "leadCapture": "Уеб форми"
-  },
-  "tooltips": {
-    "tabUrl": "Може да започва с `#`, за да се отвори вътрешна страница на приложението.",
-    "tabUrlAclScope": "Разделът ще бъде достъпен за потребители, които имат достъп до посочения модул."
   }
 }

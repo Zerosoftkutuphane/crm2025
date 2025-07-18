@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,6 @@ namespace Espo\Tools\App;
 
 use Espo\Core\Mail\ConfigDataProvider as EmailConfigDataProvider;
 use Espo\Core\Utils\ThemeManager;
-use Espo\Entities\Email;
 use Espo\Entities\Settings;
 use Espo\ORM\Entity;
 use Espo\ORM\EntityManager;
@@ -369,8 +368,8 @@ class SettingsService
         }
 
         if (
-            !$this->acl->checkScope(Email::ENTITY_TYPE, Acl\Table::ACTION_CREATE) ||
-            !$this->emailConfigDataProvider->isSystemOutboundAddressShared()
+            !$this->acl->checkScope('Email', 'create') ||
+            !$this->config->get('outboundEmailIsShared')
         ) {
             unset($data->outboundEmailFromAddress);
             unset($data->outboundEmailFromName);

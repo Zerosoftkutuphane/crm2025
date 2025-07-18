@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -95,7 +95,7 @@ And allow override for the `public` directory:
 
 <p>
 <strong>
-See more details in the <a href="https://docs.espocrm.com/administration/apache-server-configuration/">documentation</a>.
+See more details in the <a href="https://docs.EspoCRM.com/administration/apache-server-configuration/">documentation</a>.
 </strong>
 </p>
 
@@ -107,7 +107,7 @@ You need to configure the document root to look at the `public` directory and cr
 
 <p>
 <strong>
-See more details in the <a href="https://docs.espocrm.com/administration/nginx-server-configuration/">documentation</a>.
+See more details in the <a href="https://docs.EspoCRM.com/administration/nginx-server-configuration/">documentation</a>.
 </strong>
 </p>
 

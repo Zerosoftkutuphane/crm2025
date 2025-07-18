@@ -4,12 +4,7 @@
     "tab": true,
     "acl": true,
     "aclPortal": true,
-    "aclPortalLevelList": [
-        "account",
-        "contact",
-        "own",
-        "no"
-    ],
+    "aclPortalLevelList": ["all", "account", "contact", "own", "no"],
     "aclPortalActionList": ["read"],
     "notifications": true,
     "object": true,

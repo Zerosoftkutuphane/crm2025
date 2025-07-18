@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -32,25 +32,17 @@ namespace Espo\Core\Job;
 class QueueName
 {
     /**
-     * Executes as soon as possible. Non-parallel.
+     * Executes as soon as possible.
      */
     public const Q0 = 'q0';
 
     /**
-     * Executes every minute. Non-parallel.
+     * Executes every minute.
      */
     public const Q1 = 'q1';
 
     /**
-     * Executes as soon as possible. For email processing. Non-parallel.
+     * Executes as soon as possible. For email processing.
      */
     public const E0 = 'e0';
-
-    /**
-     * Executes in the main queue pool in parallel. Along with jobs without specified queue.
-     * A portion is always picked for a queue iteration, even if there are no-queue
-     * jobs ordered before. E.g. if the portion size is 100, and there are 200 empty-queue
-     * jobs and 5 m0 jobs, 95 and 5 will be picked respectfully.
-     */
-    const M0 = 'm0';
 }

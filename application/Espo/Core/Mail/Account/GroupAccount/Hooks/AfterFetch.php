@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,6 @@
 namespace Espo\Core\Mail\Account\GroupAccount\Hooks;
 
 use Espo\Core\Name\Field;
-use Espo\Core\Name\Link;
 use Laminas\Mail\Message;
 
 use Espo\Core\Mail\Account\GroupAccount\AccountFactory as GroupAccountFactory;
@@ -544,7 +543,7 @@ class AfterFetch implements AfterFetchInterface
 
         $contact = $this->entityManager
             ->getRDBRepository(Contact::ENTITY_TYPE)
-            ->join(Link::EMAIL_ADDRESSES, 'emailAddressesMultiple')
+            ->join('emailAddresses', 'emailAddressesMultiple')
             ->where([
                 'emailAddressesMultiple.id' => $email->get('fromEmailAddressId'),
             ])
@@ -556,7 +555,7 @@ class AfterFetch implements AfterFetchInterface
             if (!$case->get('accountId')) {
                 $lead = $this->entityManager
                     ->getRDBRepository(Lead::ENTITY_TYPE)
-                    ->join(Link::EMAIL_ADDRESSES, 'emailAddressesMultiple')
+                    ->join('emailAddresses', 'emailAddressesMultiple')
                     ->where([
                         'emailAddressesMultiple.id' => $email->get('fromEmailAddressId')
                     ])

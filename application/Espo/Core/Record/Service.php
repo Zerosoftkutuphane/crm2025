@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -41,7 +41,6 @@ use Espo\Core\Exceptions\NotFoundSilent;
 use Espo\Core\FieldSanitize\SanitizeManager;
 use Espo\Core\ORM\Defs\AttributeParam;
 use Espo\Core\ORM\Entity as CoreEntity;
-use Espo\Core\ORM\Repository\Option\RemoveOption;
 use Espo\Core\ORM\Repository\Option\SaveContext;
 use Espo\Core\ORM\Repository\Option\SaveOption;
 use Espo\Core\Record\Access\LinkCheck;
@@ -798,7 +797,7 @@ class Service implements Crud,
         /** @noinspection PhpDeprecationInspection */
         $this->beforeDeleteEntity($entity);
 
-        $this->getRepository()->remove($entity, [RemoveOption::API => true]);
+        $this->getRepository()->remove($entity);
 
         /** @noinspection PhpDeprecationInspection */
         $this->afterDeleteEntity($entity);

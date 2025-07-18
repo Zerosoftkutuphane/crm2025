@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -84,9 +84,8 @@ class Installer
         'theme',
     ];
 
-    public function __construct(
-        private Application\ApplicationParams $applicationParams = new Application\ApplicationParams(),
-    ) {
+    public function __construct()
+    {
         $this->initialize();
 
         require_once('install/core/InstallerConfig.php');
@@ -131,7 +130,7 @@ class Installer
             $config->get('defaultPermissions') ?? null
         );
 
-        $injectableFactory = (new Application($this->applicationParams))
+        $injectableFactory = (new Application())
             ->getContainer()
             ->getByClass(InjectableFactory::class);
 
@@ -151,7 +150,7 @@ class Installer
             $configWriter->save();
         }
 
-        $this->app = new Application($this->applicationParams);
+        $this->app = new Application();
     }
 
     private function getContainer(): Container
@@ -368,7 +367,7 @@ class Installer
      *     [
      *       'driver' => 'pdo_mysql',
      *       'host' => 'localhost',
-     *       'dbname' => 'espocrm_test',
+     *       'dbname' => 'EspoCRM_test',
      *       'user' => 'root',
      *       'password' => '',
      *     ]

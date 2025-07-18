@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -54,8 +54,7 @@ class Admin
         private Manager $adminNotificationManager,
         private SystemRequirements $systemRequirements,
         private ScheduledJob $scheduledJob,
-        private DataManager $dataManager,
-        private Config\SystemConfig $systemConfig,
+        private DataManager $dataManager
     ) {
         if (!$this->user->isAdmin()) {
             throw new Forbidden();
@@ -180,14 +179,9 @@ class Admin
      *     database: array<string, array<string, mixed>>,
      *     permission: array<string, array<string, mixed>>,
      * }
-     * @throws Forbidden
      */
     public function getActionSystemRequirementList(): object
     {
-        if (!$this->user->isSuperAdmin() && $this->systemConfig->isRestrictedMode()) {
-            throw new Forbidden();
-        }
-
         return (object) $this->systemRequirements->getAllRequiredList();
     }
 }

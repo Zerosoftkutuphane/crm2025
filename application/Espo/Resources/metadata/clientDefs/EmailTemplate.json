@@ -1,6 +1,5 @@
 {
     "controller": "controllers/record",
-    "forceListViewSettings": true,
     "views": {
         "list": "views/email-template/list"
     },

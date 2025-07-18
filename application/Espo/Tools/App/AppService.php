@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -32,15 +32,15 @@ namespace Espo\Tools\App;
 use Espo\Core\Authentication\Util\MethodProvider as AuthenticationMethodProvider;
 use Espo\Core\Mail\ConfigDataProvider as EmailConfigDataProvider;
 use Espo\Core\Name\Field;
-use Espo\Core\Name\Link;
 use Espo\Core\Utils\SystemUser;
 use Espo\Entities\DashboardTemplate;
 use Espo\Entities\Email;
-use Espo\Entities\EmailAccount;
+use Espo\Entities\EmailAccount as EmailAccountEntity;
 use Espo\Entities\EmailAddress;
-use Espo\Entities\InboundEmail;
+use Espo\Entities\InboundEmail as InboundEmailEntity;
 use Espo\Entities\Settings;
 use Espo\ORM\Name\Attribute;
+use Espo\Tools\App\SettingsService as SettingsService;
 use Espo\Core\Acl;
 use Espo\Core\Authentication\Logins\Espo;
 use Espo\Core\InjectableFactory;
@@ -51,6 +51,7 @@ use Espo\Core\Utils\Log;
 use Espo\Core\Utils\Metadata;
 use Espo\Entities\User;
 use Espo\Entities\Preferences;
+use Espo\ORM\Collection;
 use Espo\ORM\EntityManager;
 use stdClass;
 use Throwable;
@@ -280,50 +281,54 @@ class AppService
     {
         $user = $this->user;
 
-        $systemIsShared = $this->emailConfigDataProvider->isSystemOutboundAddressShared();
-        $systemAddress = $this->emailConfigDataProvider->getSystemOutboundAddress();
+        $outboundEmailIsShared = $this->config->get('outboundEmailIsShared');
+        $outboundEmailFromAddress = $this->emailConfigDataProvider->getSystemOutboundAddress();
 
-        $addressList = [];
-        $userAddressList = [];
+        $emailAddressList = [];
+        $userEmailAddressList = [];
 
-        /** @var iterable<EmailAddress> $emailAddresses */
-        $emailAddresses = $this->entityManager
-            ->getRelation($user, Link::EMAIL_ADDRESSES)
+        /** @var Collection<EmailAddress> $emailAddressCollection */
+        $emailAddressCollection = $this->entityManager
+            ->getRDBRepositoryByClass(User::class)
+            ->getRelation($user, 'emailAddresses')
             ->find();
 
-        foreach ($emailAddresses as $emailAddress) {
+        foreach ($emailAddressCollection as $emailAddress) {
             if ($emailAddress->isInvalid()) {
                 continue;
             }
 
-            $userAddressList[] = $emailAddress->getAddress();
+            $userEmailAddressList[] = $emailAddress->getAddress();
 
             if ($user->getEmailAddress() === $emailAddress->getAddress()) {
                 continue;
             }
 
-            $addressList[] = $emailAddress->getAddress();
+            $emailAddressList[] = $emailAddress->getAddress();
         }
 
         if ($user->getEmailAddress()) {
-            array_unshift($addressList, $user->getEmailAddress());
+            array_unshift($emailAddressList, $user->getEmailAddress());
         }
 
-        if (!$systemIsShared) {
-            $addressList = $this->filterUserEmailAddressList($user, $addressList);
+        if (!$outboundEmailIsShared) {
+            $emailAddressList = $this->filterUserEmailAddressList($user, $emailAddressList);
         }
 
-        $addressList = array_merge($addressList, $this->getUserGroupEmailAddressList($user));
+        $emailAddressList = array_merge(
+            $emailAddressList,
+            $this->getUserGroupEmailAddressList($user)
+        );
 
-        if ($systemIsShared && $systemAddress) {
-            $addressList[] = $systemAddress;
+        if ($outboundEmailIsShared && $outboundEmailFromAddress) {
+            $emailAddressList[] = $outboundEmailFromAddress;
         }
 
-        $addressList = array_values(array_unique($addressList));
+        $emailAddressList = array_values(array_unique($emailAddressList));
 
         return [
-            'emailAddressList' => $addressList,
-            'userEmailAddressList' => $userAddressList,
+            'emailAddressList' => $emailAddressList,
+            'userEmailAddressList' => $userEmailAddressList,
             'excludeFromReplyEmailAddressList' => $this->getExcludeFromReplyAddressList(),
         ];
     }
@@ -335,20 +340,17 @@ class AppService
     private function filterUserEmailAddressList(User $user, array $emailAddressList): array
     {
         $emailAccountCollection = $this->entityManager
-            ->getRDBRepositoryByClass(EmailAccount::class)
-            ->select([
-                Attribute::ID,
-                Field::EMAIL_ADDRESS,
-            ])
+            ->getRDBRepositoryByClass(EmailAccountEntity::class)
+            ->select([Attribute::ID, 'emailAddress'])
             ->where([
                 'assignedUserId' => $user->getId(),
                 'useSmtp' => true,
-                'status' => EmailAccount::STATUS_ACTIVE,
+                'status' => EmailAccountEntity::STATUS_ACTIVE,
             ])
             ->find();
 
         $inAccountList = array_map(
-            fn (EmailAccount $e) => $e->getEmailAddress(),
+            fn (EmailAccountEntity $e) => $e->getEmailAddress(),
             [...$emailAccountCollection]
         );
 
@@ -377,9 +379,9 @@ class AppService
             }
 
             $inboundEmailList = $this->entityManager
-                ->getRDBRepositoryByClass(InboundEmail::class)
+                ->getRDBRepositoryByClass(InboundEmailEntity::class)
                 ->where([
-                    'status' => InboundEmail::STATUS_ACTIVE,
+                    'status' => InboundEmailEntity::STATUS_ACTIVE,
                     'useSmtp' => true,
                     'smtpIsShared' => true,
                     'teamsMiddle.teamId' => $teamIdList,
@@ -403,9 +405,9 @@ class AppService
 
         if ($groupEmailAccountPermission === Acl\Table::LEVEL_ALL) {
             $inboundEmailList = $this->entityManager
-                ->getRDBRepositoryByClass(InboundEmail::class)
+                ->getRDBRepositoryByClass(InboundEmailEntity::class)
                 ->where([
-                    'status' => InboundEmail::STATUS_ACTIVE,
+                    'status' => InboundEmailEntity::STATUS_ACTIVE,
                     'useSmtp' => true,
                     'smtpIsShared' => true,
                 ])
@@ -493,9 +495,9 @@ class AppService
             return [];
         }
 
-        /** @var iterable<InboundEmail> $accounts */
+        /** @var iterable<InboundEmailEntity> $accounts */
         $accounts = $this->entityManager
-            ->getRDBRepositoryByClass(InboundEmail::class)
+            ->getRDBRepositoryByClass(InboundEmailEntity::class)
             ->select('emailAddress')
             ->where(['excludeFromReply' => true])
             ->find();

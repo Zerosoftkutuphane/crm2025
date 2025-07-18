@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,13 +30,17 @@
 namespace Espo\Tools\Export\Jobs;
 
 use Espo\Core\Exceptions\Error;
+
 use Espo\Core\Job\Job;
 use Espo\Core\Job\Job\Data as JobData;
+
 use Espo\Tools\Export\Factory;
 use Espo\Tools\Export\Result;
+
 use Espo\Core\Utils\Language;
+
 use Espo\ORM\EntityManager;
-use Espo\Entities\Export;
+use Espo\Entities\Export as ExportEntity;
 use Espo\Entities\Notification;
 use Espo\Entities\User;
 
@@ -47,7 +51,7 @@ class Process implements Job
     public function __construct(
         private EntityManager $entityManager,
         private Factory $factory,
-        private Language $language,
+        private Language $language
     ) {}
 
     /**
@@ -61,8 +65,8 @@ class Process implements Job
             throw new Error("ID not passed to the mass action job.");
         }
 
-        /** @var Export|null $entity */
-        $entity = $this->entityManager->getEntityById(Export::ENTITY_TYPE, $id);
+        /** @var ExportEntity|null $entity */
+        $entity = $this->entityManager->getEntityById(ExportEntity::ENTITY_TYPE, $id);
 
         if ($entity === null) {
             throw new Error("Export '$id' not found.");
@@ -98,9 +102,10 @@ class Process implements Job
         }
     }
 
-    private function notifyFinish(Export $entity): void
+    private function notifyFinish(ExportEntity $entity): void
     {
-        $notification = $this->entityManager->getRDBRepositoryByClass(Notification::class)->getNew();
+        /** @var Notification $notification */
+        $notification = $this->entityManager->getNewEntity(Notification::ENTITY_TYPE);
 
         $url = '?entryPoint=download&id=' . $entity->getAttachmentId();
 
@@ -118,24 +123,24 @@ class Process implements Job
         $this->entityManager->saveEntity($notification);
     }
 
-    private function setFailed(Export $entity): void
+    private function setFailed(ExportEntity $entity): void
     {
-        $entity->setStatus(Export::STATUS_FAILED);
+        $entity->setStatus(ExportEntity::STATUS_FAILED);
 
         $this->entityManager->saveEntity($entity);
     }
 
-    private function setRunning(Export $entity): void
+    private function setRunning(ExportEntity $entity): void
     {
-        $entity->setStatus(Export::STATUS_RUNNING);
+        $entity->setStatus(ExportEntity::STATUS_RUNNING);
 
         $this->entityManager->saveEntity($entity);
     }
 
-    private function setSuccess(Export $entity, Result $result): void
+    private function setSuccess(ExportEntity $entity, Result $result): void
     {
         $entity
-            ->setStatus(Export::STATUS_SUCCESS)
+            ->setStatus(ExportEntity::STATUS_SUCCESS)
             ->setAttachmentId($result->getAttachmentId());
 
         $this->entityManager->saveEntity($entity);

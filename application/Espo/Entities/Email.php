@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -71,8 +71,6 @@ class Email extends Entity
     public const SAVE_OPTION_IS_JUST_SENT = 'isJustSent';
 
     private const ATTR_BODY_PLAIN = 'bodyPlain';
-
-    public const LINK_REPLIES = 'replies';
 
     public function get(string $attribute): mixed
     {
@@ -230,10 +228,6 @@ class Email extends Entity
     {
         if ($this->getFromContainer(self::ATTR_BODY_PLAIN)) {
             return $this->getFromContainer(self::ATTR_BODY_PLAIN);
-        }
-
-        if (!$this->isHtml()) {
-            return $this->getBody();
         }
 
         $body = $this->getBody() ?: '';

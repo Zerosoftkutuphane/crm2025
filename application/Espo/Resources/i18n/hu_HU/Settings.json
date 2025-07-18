@@ -116,7 +116,7 @@
     "ldapUserTitleAttribute": "Az LDAP attribútum, amely a felhasználó címének meghatározására szolgál. Például. \"cím\".",
     "ldapUserEmailAddressAttribute": "LDAP attribútum, amely a felhasználó e-mail címének meghatározására szolgál. Például. \"levél\".",
     "ldapUserPhoneNumberAttribute": "LDAP attribútum, amely a felhasználó telefonszámának meghatározására szolgál. Például. \"telefonszám\".",
-    "ldapUserLoginFilter": "A szűrő, amely lehetővé teszi az EspoCRM használatára képes felhasználók korlátozását. Például. \"memberOf = CN = espoGroup, OU = csoportok, OU = espocrm, DC = teszt, DC = lan\".",
+    "ldapUserLoginFilter": "A szűrő, amely lehetővé teszi az EspoCRM használatára képes felhasználók korlátozását. Például. \"memberOf = CN = espoGroup, OU = csoportok, OU = EspoCRM, DC = teszt, DC = lan\".",
     "ldapAccountDomainName": "Az LDAP kiszolgáló engedélyezéséhez használt tartomány.",
     "ldapAccountDomainNameShort": "Az LDAP kiszolgálóhoz való engedélyezéshez használt rövid domain.",
     "ldapUserTeams": "Csapatok létrehozott felhasználó számára. További információért lásd a felhasználói profilot.",

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,11 +29,9 @@
 
 namespace Espo\Core\Templates\Services;
 
-use Espo\Core\Templates\Entities\CategoryTree as CategoryTreeEntity;
-use Espo\Services\RecordTree;
-
 /**
- * @extends RecordTree<CategoryTreeEntity>
+ * @extends \Espo\Services\RecordTree<\Espo\Core\Templates\Entities\CategoryTree>
  */
-class CategoryTree extends RecordTree
-{}
+class CategoryTree extends \Espo\Services\RecordTree
+{
+}

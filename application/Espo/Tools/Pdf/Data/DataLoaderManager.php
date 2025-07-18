@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,18 +30,23 @@
 namespace Espo\Tools\Pdf\Data;
 
 use Espo\ORM\Entity;
+
 use Espo\Core\Utils\Metadata;
 use Espo\Core\InjectableFactory;
-use Espo\Tools\Pdf\AttachmentProvider;
+
 use Espo\Tools\Pdf\Data;
 use Espo\Tools\Pdf\Params;
 
 class DataLoaderManager
 {
-    public function __construct(
-        private Metadata $metadata,
-        private InjectableFactory $injectableFactory,
-    ) {}
+    private Metadata $metadata;
+    private InjectableFactory $injectableFactory;
+
+    public function __construct(Metadata $metadata, InjectableFactory $injectableFactory)
+    {
+        $this->metadata = $metadata;
+        $this->injectableFactory = $injectableFactory;
+    }
 
     public function load(Entity $entity, ?Params $params = null, ?Data $data = null): Data
     {
@@ -53,27 +58,15 @@ class DataLoaderManager
             $data = Data::create();
         }
 
-        $defs = $this->metadata->get("pdfDefs.{$entity->getEntityType()}") ?? [];
+        /** @var class-string<DataLoader>[] $classNameList */
+        $classNameList = $this->metadata->get(['pdfDefs', $entity->getEntityType(), 'dataLoaderClassNameList']) ?? [];
 
-        /** @var class-string<DataLoader>[] $loaderClassList */
-        $loaderClassList = $defs['dataLoaderClassNameList'] ?? [];
+        foreach ($classNameList as $className) {
+            $loader = $this->createLoader($className);
 
-        foreach ($loaderClassList as $className) {
-            $loadedData = $this->createLoader($className)
-                ->load($entity, $params);
+            $loadedData = $loader->load($entity, $params);
 
             $data = $data->withAdditionalTemplateData($loadedData);
-        }
-
-        /** @var class-string<AttachmentProvider<Entity>>[] $attachmentProviderClassList */
-        $attachmentProviderClassList = $defs['attachmentProviderClassNameList'] ?? [];
-
-        foreach ($attachmentProviderClassList as $className) {
-            $provider = $this->createProvider($className);
-
-            $attachments = $provider->get($entity, $params);
-
-            $data = $data->withAttachmentsAdded($attachments);
         }
 
         return $data;
@@ -84,16 +77,6 @@ class DataLoaderManager
      */
     private function createLoader(string $className): DataLoader
     {
-        return $this->injectableFactory->create($className);
-    }
-
-    /**
-     * @param class-string<AttachmentProvider<Entity>> $className
-     * @return AttachmentProvider<Entity>
-     */
-    private function createProvider(string $className): AttachmentProvider
-    {
-        /** @var AttachmentProvider<Entity> */
         return $this->injectableFactory->create($className);
     }
 }

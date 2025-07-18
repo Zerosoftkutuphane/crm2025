@@ -149,7 +149,7 @@
     "recordsPerPageSmall": "Nombre d'enregistrements dans les volets Relations.",
     "followCreatedEntities": "Les utilisateurs suivront automatiquement leurs entrées",
     "userThemesDisabled": "Si coché alors les utilisateurs ne pourront pas sélectionner un autre thème",
-    "ldapUsername": "Le DN complet de l'utilisateur du système qui permet de rechercher d'autres utilisateurs. Par exemple \"CN=LDAP System User,OU=users,OU=espocrm, DC=test,DC=lan\".",
+    "ldapUsername": "Le DN complet de l'utilisateur du système qui permet de rechercher d'autres utilisateurs. Par exemple \"CN=LDAP System User,OU=users,OU=EspoCRM, DC=test,DC=lan\".",
     "ldapPassword": "Le mot de passe pour accéder au serveur LDAP.",
     "ldapAuth": "Accédez aux informations d'identification du serveur LDAP.",
     "ldapUserNameAttribute": "Attribut permettant d'identifier l'utilisateur. \nPar exemple, « userPrincipalName » ou « sAMAccountName » pour Active Directory, « uid » pour OpenLDAP.",

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -360,7 +360,7 @@ class EntityDefs
 
     private function loadAttribute(string $name): ?AttributeDefs
     {
-        $raw = $this->data[EntityParam::ATTRIBUTES][$name] ?? null;
+        $raw = $this->data[EntityParam::ATTRIBUTES][$name] ?? $this->data['fields'][$name] ?? null;
 
         if (!$raw) {
             return null;

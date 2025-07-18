@@ -109,6 +109,7 @@
             "importDisabled": true,
             "exportDisabled": true,
             "noLoad": true,
+            "directAccessDisabled": true,
             "directUpdateDisabled": true,
             "layoutAvailabilityList": [
                 "filters"

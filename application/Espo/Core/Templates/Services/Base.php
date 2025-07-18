@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,11 +29,9 @@
 
 namespace Espo\Core\Templates\Services;
 
-use Espo\Core\Templates\Entities\Base as BaseEntity;
-use Espo\Services\Record;
-
 /**
- * @extends Record<BaseEntity>
+ * @extends \Espo\Services\Record<\Espo\Core\Templates\Entities\Base>
  */
-class Base extends Record
-{}
+class Base extends \Espo\Services\Record
+{
+}

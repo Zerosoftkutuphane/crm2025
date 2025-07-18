@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -42,8 +42,15 @@ abstract class AddIntervalType extends BaseFunction implements Di\DateTimeAware
 {
     use Di\DateTimeSetter;
 
-    protected bool $timeOnly = false;
-    protected string $intervalTypeString;
+    /**
+     * @var bool
+     */
+    protected $timeOnly = false;
+
+    /**
+     * @var string
+     */
+    protected $intervalTypeString;
 
     public function process(ArgumentList $args)
     {

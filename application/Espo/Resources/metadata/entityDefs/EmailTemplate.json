@@ -18,18 +18,6 @@
             "default": true,
             "inlineEditDisabled": true
         },
-        "status": {
-            "type": "enum",
-            "options": [
-                "Active",
-                "Inactive"
-            ],
-            "default": "Active",
-            "style": {
-                "Inactive": "info"
-            },
-            "maxLength": 8
-        },
         "oneOff": {
             "type": "bool",
             "default": false,

@@ -3,11 +3,6 @@
         "event": "Event",
         "target": "Target",
         "data": "Data",
-        "isProcessed": "Is Processed",
-        "user": "User"
-    },
-    "links": {
-        "target": "Target",
-        "user": "User"
+        "isProcessed": "Is Processed"
     }
 }

@@ -19,19 +19,6 @@
                     }
                 ]
             }
-        },
-        "skipOwn": {
-            "visible": {
-                "conditionGroup": [
-                    {
-                        "type": "isNotEmpty",
-                        "attribute": "userId",
-                        "data": {
-                            "field": "user"
-                        }
-                    }
-                ]
-            }
         }
     }
 }

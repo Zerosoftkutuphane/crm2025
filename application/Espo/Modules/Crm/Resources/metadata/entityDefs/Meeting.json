@@ -275,7 +275,6 @@
             },
             "additionalAttributeList": ["columns"],
             "orderBy": "name",
-            "audited": true,
             "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees"
         },
         "contacts": {
@@ -288,7 +287,6 @@
             },
             "additionalAttributeList": ["columns"],
             "orderBy": "name",
-            "audited": true,
             "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees"
         },
         "leads": {
@@ -301,7 +299,6 @@
             },
             "additionalAttributeList": ["columns"],
             "orderBy": "name",
-            "audited": true,
             "duplicatorClassName": "Espo\\Modules\\Crm\\Classes\\FieldDuplicators\\Meeting\\Attendees"
         },
         "sourceEmail": {

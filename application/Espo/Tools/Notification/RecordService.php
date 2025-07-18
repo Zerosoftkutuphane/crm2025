@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -41,14 +41,9 @@ use Espo\Core\Utils\Metadata;
 use Espo\Entities\Note;
 use Espo\Entities\Notification;
 use Espo\Entities\User;
-use Espo\ORM\Collection;
 use Espo\ORM\EntityCollection;
 use Espo\ORM\EntityManager;
 use Espo\ORM\Name\Attribute;
-use Espo\ORM\Query\Part\Condition as Cond;
-use Espo\ORM\Query\Part\Expression as Expr;
-use Espo\ORM\Query\Part\WhereItem;
-use Espo\ORM\Query\SelectBuilder;
 use Espo\Tools\Stream\NoteAccessControl;
 
 class RecordService
@@ -58,7 +53,7 @@ class RecordService
         private Acl $acl,
         private Metadata $metadata,
         private NoteAccessControl $noteAccessControl,
-        private SelectBuilderFactory $selectBuilderFactory,
+        private SelectBuilderFactory $selectBuilderFactory
     ) {}
 
     /**
@@ -69,59 +64,29 @@ class RecordService
      * @throws BadRequest
      * @throws Forbidden
      */
-    public function get(User $user, SearchParams $searchParams): RecordCollection
+    public function get(string $userId, SearchParams $searchParams): RecordCollection
     {
         $queryBuilder = $this->selectBuilderFactory
             ->create()
             ->from(Notification::ENTITY_TYPE)
             ->withSearchParams($searchParams)
             ->buildQueryBuilder()
-            ->where([Notification::ATTR_USER_ID => $user->getId()])
-            ->order(Notification::ATTR_NUMBER, SearchParams::ORDER_DESC);
-
-        if ($this->isGroupingEnabled()) {
-            $queryBuilder->where($this->getActionIdWhere($user->getId()));
-        }
-
-        /*$queryBuilder
-            ->leftJoin(
-                Join
-                    ::createWithSubQuery(
-                        SelectBuilder::create()
-                            ->from(Notification::ENTITY_TYPE)
-                            ->select('actionId')
-                            ->select(
-                                Selection::create(
-                                    Expr::max(Expr::column('number')),
-                                    'maxNumber'
-                                )
-                            )
-                            ->where(
-                                Expr::isNotNull(Expr::column('actionId'))
-                            )
-                            ->group('actionId')
-                            ->build(),
-                        'subLatest'
-                    )
-                    ->withConditions(
-                        Cond::and(
-                            Cond::equal(
-                                Expr::column('notification.actionId'),
-                                Expr::alias('subLatest.actionId')
-                            ),
-                            Cond::equal(
-                                Expr::column('notification.number'),
-                                Expr::alias('subLatest.maxNumber')
-                            ),
-                        )
-                    )
-            );*/
+            ->where(['userId' => $userId])
+            ->order('number', SearchParams::ORDER_DESC);
 
         $offset = $searchParams->getOffset();
         $limit = $searchParams->getMaxSize();
 
         if ($limit) {
             $queryBuilder->limit($offset, $limit + 1);
+        }
+
+        $user = $this->entityManager
+            ->getRDBRepositoryByClass(User::class)
+            ->getById($userId);
+
+        if (!$user) {
+            throw new Error("User not found.");
         }
 
         $ignoreScopeList = $this->getIgnoreScopeList();
@@ -146,71 +111,31 @@ class RecordService
             throw new Error("Collection is not instance of EntityCollection.");
         }
 
-        $collection = $this->prepareCollection($collection, $user);
-
-        $groupedCountMap = $this->getGroupedCountMap($collection, $user->getId());
-
         $ids = [];
-        $actionIds = [];
 
-        foreach ($collection as  $entity) {
-            $ids[] = $entity->getId();
-
-            $groupedCount = null;
-
-            if ($entity->getActionId() && $this->isGroupingEnabled()) {
-                $actionIds[] = $entity->getActionId();
-
-                $groupedCount = $groupedCountMap[$entity->getActionId()] ?? 0;
+        foreach ($collection as $k => $entity) {
+            if ($k === $limit) {
+                break;
             }
 
-            $entity->set('groupedCount', $groupedCount);
+            $ids[] = $entity->getId();
+
+            $this->prepareListItem($entity, $k, $collection, $limit, $user);
         }
 
         $collection = new EntityCollection([...$collection], Notification::ENTITY_TYPE);
 
-        $this->markAsRead($user, $ids, $actionIds);
+        $this->markAsRead($ids);
 
         return RecordCollection::createNoCount($collection, $limit);
     }
 
     /**
-     * @param Collection<Notification> $collection
-     * @return EntityCollection<Notification>
-     */
-    public function prepareCollection(Collection $collection, User $user): EntityCollection
-    {
-        if (!$collection instanceof EntityCollection) {
-            $collection = new EntityCollection([...$collection], Notification::ENTITY_TYPE);
-        }
-
-        $limit = count($collection);
-
-        foreach ($collection as $i => $entity) {
-            if ($i === $limit) {
-                break;
-            }
-
-            $this->prepareListItem(
-                entity: $entity,
-                index: $i,
-                collection: $collection,
-                count: $limit,
-                user: $user,
-            );
-        }
-
-        /** @var EntityCollection<Notification> */
-        return new EntityCollection([...$collection], Notification::ENTITY_TYPE);
-    }
-
-    /**
      * @param string[] $ids
-     * @param string[] $actionIds
      */
-    private function markAsRead(User $user, array $ids, array $actionIds): void
+    private function markAsRead(array $ids): void
     {
-        if ($ids === [] && $actionIds === []) {
+        if ($ids === []) {
             return;
         }
 
@@ -218,14 +143,8 @@ class RecordService
             ->getQueryBuilder()
             ->update()
             ->in(Notification::ENTITY_TYPE)
-            ->set([Notification::ATTR_READ => true])
-            ->where([Notification::ATTR_USER_ID => $user->getId()])
-            ->where(
-                Cond::or(
-                    Cond::in(Expr::column(Attribute::ID), $ids),
-                    Cond::in(Expr::column(Notification::ATTR_ACTION_ID), $actionIds),
-                )
-            )
+            ->set(['read' => true])
+            ->where([Attribute::ID => $ids])
             ->build();
 
         $this->entityManager->getQueryExecutor()->execute($query);
@@ -281,8 +200,8 @@ class RecordService
     public function getNotReadCount(string $userId): int
     {
         $whereClause = [
-            Notification::ATTR_USER_ID => $userId,
-            Notification::ATTR_READ => false,
+            'userId' => $userId,
+            'read' => false,
         ];
 
         $ignoreScopeList = $this->getIgnoreScopeList();
@@ -296,15 +215,10 @@ class RecordService
             ];
         }
 
-        $builder = $this->entityManager
+        return $this->entityManager
             ->getRDBRepositoryByClass(Notification::class)
-            ->where($whereClause);
-
-        if ($this->isGroupingEnabled()) {
-            $builder->where($this->getActionIdWhere($userId));
-        }
-
-        return $builder->count();
+            ->where($whereClause)
+            ->count();
     }
 
     public function markAllRead(string $userId): bool
@@ -411,87 +325,5 @@ class RecordService
         if ($notification->getType() !== Notification::TYPE_USER_REACTION) {
             $note->loadLinkMultipleField('attachments');
         }
-    }
-
-    private function getActionIdWhere(string $userId): WhereItem
-    {
-        return Cond::or(
-            Expr::isNull(Expr::column('actionId')),
-            Cond::and(
-                Expr::isNotNull(Expr::column('actionId')),
-                Cond::not(
-                    Cond::exists(
-                        SelectBuilder::create()
-                            ->from(Notification::ENTITY_TYPE, 'sub')
-                            ->select('id')
-                            ->where(
-                                Cond::equal(
-                                    Expr::column('sub.actionId'),
-                                    Expr::column('notification.actionId')
-                                )
-                            )
-                            ->where(
-                                Cond::less(
-                                    Expr::column('sub.number'),
-                                    Expr::column('notification.number')
-                                )
-                            )
-                            ->where([Notification::ATTR_USER_ID => $userId])
-                            ->build()
-                    )
-                )
-            )
-        );
-    }
-
-    /**
-     * @param EntityCollection<Notification> $collection
-     * @return array<string, int>
-     */
-    private function getGroupedCountMap(EntityCollection $collection, string $userId): array
-    {
-        if (!$this->isGroupingEnabled()) {
-            return [];
-        }
-
-        $groupedCountMap = [];
-
-        $actionIds = [];
-
-        foreach ($collection as $note) {
-            if ($note->getActionId()) {
-                $actionIds[] = $note->getActionId();
-            }
-        }
-
-        $countsQuery = SelectBuilder::create()
-            ->from(Notification::ENTITY_TYPE)
-            ->select(Expr::count(Expr::column(Attribute::ID)), 'count')
-            ->select(Expr::column(Notification::ATTR_ACTION_ID))
-            ->where([
-                Notification::ATTR_ACTION_ID => $actionIds,
-                Notification::ATTR_USER_ID => $userId,
-            ])
-            ->group(Expr::column(Notification::ATTR_ACTION_ID))
-            ->build();
-
-        $rows = $this->entityManager->getQueryExecutor()->execute($countsQuery)->fetchAll();
-
-        foreach ($rows as $row) {
-            $actionId = $row[Notification::ATTR_ACTION_ID] ?? null;
-
-            if (!is_string($actionId)) {
-                continue;
-            }
-
-            $groupedCountMap[$actionId] = $row['count'] ?? 0;
-        }
-
-        return $groupedCountMap;
-    }
-
-    private function isGroupingEnabled(): bool
-    {
-        return true;
     }
 }

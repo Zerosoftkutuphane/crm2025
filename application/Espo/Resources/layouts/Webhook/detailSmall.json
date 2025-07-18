@@ -6,14 +6,13 @@
                 {"name": "isActive"}
             ],
             [
-                {"name": "url"}
+                {"name": "url", "fullWidth": true}
             ],
             [
-                {"name": "user"},
-                {"name": "skipOwn"}
+                {"name": "user", "fullWidth": true}
             ],
             [
-                {"name": "secretKey"}
+                {"name": "secretKey", "fullWidth": true}
             ]
         ]
     }

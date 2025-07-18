@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,34 +29,32 @@
 
 namespace Espo\Hooks\Note;
 
-use Espo\Core\Hook\Hook\AfterSave;
-use Espo\Core\ORM\Repository\Option\SaveContext;
 use Espo\ORM\Entity;
-use Espo\ORM\Repository\Option\SaveOptions;
-use Espo\Tools\Notification\HookProcessor\Params;
 use Espo\Tools\Notification\NoteHookProcessor;
 use Espo\Entities\Note;
 
-/**
- * @implements AfterSave<Note>
- */
-class Notifications implements AfterSave
+class Notifications
 {
     public static int $order = 14;
 
-    public function __construct(private NoteHookProcessor $processor)
-    {}
+    private $processor;
 
-    public function afterSave(Entity $entity, SaveOptions $options): void
+    public function __construct(NoteHookProcessor $processor)
     {
-        if (!$entity->isNew() && !$options->get('forceProcessNotifications')) {
+        $this->processor = $processor;
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function afterSave(Entity $entity, array $options): void
+    {
+        if (!$entity->isNew() && empty($options['forceProcessNotifications'])) {
             return;
         }
 
-        $saveContext = SaveContext::obtainFromOptions($options);
+        assert($entity instanceof Note);
 
-        $params = new Params(actionId: $saveContext?->getActionId());
-
-        $this->processor->afterSave($entity, $params);
+        $this->processor->afterSave($entity);
     }
 }

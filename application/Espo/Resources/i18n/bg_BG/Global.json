@@ -63,14 +63,12 @@
     "AppLogRecord": "Логове на приложението",
     "WorkingTimeRange": "Изключение от работното време",
     "AddressCountry": "Адрес Държава",
-    "AppSecret": "Тайнa на приложението (API)",
-    "OAuthProvider": "OAuth доставчик",
-    "OAuthAccount": "OAuth акаунт"
+    "AppSecret": "Тайнa на приложението (API)"
   },
   "scopeNamesPlural": {
     "Email": "Имейли",
     "User": "Потребители",
-    "Team": "Екипи",
+    "Team": "Отдели",
     "Role": "Роли",
     "EmailTemplate": "Шаблони за имейл",
     "EmailAccount": "Лични имейл акаунти",
@@ -118,9 +116,7 @@
     "AppLogRecord": "Логове на приложението",
     "WorkingTimeRange": "Изключения от работното време",
     "AddressCountry": "Адрес Държави",
-    "AppSecret": "Тайни на приложението (API)",
-    "OAuthProvider": "OAuth доставчици",
-    "OAuthAccount": "OAuth акаунти"
+    "AppSecret": "Тайни на приложението (API)"
   },
   "labels": {
     "Misc": "Разни",
@@ -398,6 +394,7 @@
     "validationFailure": "Неуспешно валидиране в бекенда.\n\nПоле: `{field}`\nВалидиране: `{type}`",
     "confirmAppRefresh": "Приложението е актуализирано. Препоръчително е да опресните страницата, за да осигурите правилното функциониране на системата.",
     "error404": "URL адресът, който поискахте, не може да бъде обработен.",
+    "error403": "Нямате достъп до този модул.",
     "extensionLicenseInvalid": "Невалиден лиценз за разширение „{name}“.",
     "extensionLicenseExpired": "Абонаментът за лиценз за разширение „{name}“ е изтекъл.",
     "extensionLicenseSoftExpired": "Абонаментът за лиценз за разширение „{name}“ е изтекъл.",
@@ -432,15 +429,12 @@
     "duplicateConflict": "Записът вече съществува.",
     "confirmMassUpdate": "Сигурни ли сте, че искате масово да актуализирате избраните записи?",
     "cannotRemoveCategoryWithChildCategory": "Не може да се премахне категория, която има дъщерна категория.",
-    "cannotRemoveNotEmptyCategory": "Не може да се премахне непразна категория.",
-    "arrayInputNotEmpty": "Елементът е въведен, но не е добавен",
-    "error403": "Нямате достъп до този модул.",
-    "sameRecordIsAlreadyBeingEdited": "Записът вече се редактира от друг потребител."
+    "cannotRemoveNotEmptyCategory": "Не може да се премахне непразна категория."
   },
   "boolFilters": {
     "onlyMy": "Само мои",
     "followed": "Следван",
-    "onlyMyTeam": "Моят екип",
+    "onlyMyTeam": "Моят отдел",
     "shared": "Споделен"
   },
   "presetFilters": {
@@ -471,7 +465,7 @@
     "assignedUsers": "Назначени потребители",
     "emailAddress": "Електронна поща",
     "assignedUserName": "Назначен потребител",
-    "teams": "Екипи",
+    "teams": "Отдели",
     "createdAt": "Създаден в",
     "modifiedAt": "Променен в",
     "createdBy": "Създаден от",
@@ -510,7 +504,7 @@
     "modifiedBy": "Променено от",
     "team": "Екип",
     "roles": "Роли",
-    "teams": "Екипи",
+    "teams": "Отдели",
     "users": "Потребители",
     "parent": "Родител",
     "children": "Деца",
@@ -536,8 +530,8 @@
     "attach": "{user} прикачи файл в {entityType} {entity}",
     "status": "{user} обнови {field} в {entityType} {entity}",
     "update": "{user} обнови {entityType} {entity}",
-    "postTargetTeam": "{user} публикува до екип {target}",
-    "postTargetTeams": "{user} публикува до екип {target}",
+    "postTargetTeam": "{user} публикува до отдел {target}",
+    "postTargetTeams": "{user} публикува до отдели {target}",
     "postTargetPortal": "{user} публикува в портал {target}",
     "postTargetPortals": "{user} публикува в портали {target}",
     "postTarget": "{user} публикува към {target}",
@@ -695,9 +689,7 @@
       "isNotEmpty": "Не е празно",
       "notLike": "Не е като (%)",
       "notContains": "Не съдържа",
-      "notEquals": "Не е равно на",
-      "anyOf": "Всеки от",
-      "noneOf": "Никой от"
+      "notEquals": "Не е равно на"
     },
     "intSearchRanges": {
       "equals": "Се равнява на",

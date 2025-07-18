@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -97,25 +97,21 @@ trait SelectingTrait
                 }
 
                 $conditions = isset($item[2]) ?
-                    WhereClause::fromRaw($item[2]) : null;
-
-                $params = $item[3] ?? [];
-
-                $type = $params['type'] ?? null;
-                $type ??= Join\JoinType::inner;
+                    WhereClause::fromRaw($item[2]) :
+                    null;
 
                 return Join::create($item[0])
                     ->withAlias($item[1] ?? null)
-                    ->withConditions($conditions)
-                    ->withType($type);
+                    ->withConditions($conditions);
             },
             $this->params['joins'] ?? []
         );
     }
 
     /**
+     * Get LEFT JOIN items.
+     *
      * @return Join[]
-     * @deprecated As of 9.2.0. Use getJoins and check join type.
      */
     public function getLeftJoins(): array
     {
@@ -126,12 +122,12 @@ trait SelectingTrait
                 }
 
                 $conditions = isset($item[2]) ?
-                    WhereClause::fromRaw($item[2]) : null;
+                    WhereClause::fromRaw($item[2]) :
+                    null;
 
                 return Join::create($item[0])
                     ->withAlias($item[1] ?? null)
-                    ->withConditions($conditions)
-                    ->withLeft();
+                    ->withConditions($conditions);
             },
             $this->params['leftJoins'] ?? []
         );

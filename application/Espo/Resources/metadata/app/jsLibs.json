@@ -55,6 +55,10 @@
         "exportsTo": "$",
         "exportsAs": "ui"
     },
+    "jquery-textcomplete": {
+        "exportsTo": "$.fn",
+        "exportsAs": "textcomplete"
+    },
     "autocomplete": {
         "exportsTo": "$.fn",
         "exportsAs": "autocomplete"
@@ -72,15 +76,6 @@
         "devPath": "client/lib/original/selectize.js",
         "exportsTo": "window",
         "exportsAs": "Selectize"
-    },
-    "@shopify/draggable": {
-        "devPath": "client/lib/original/shopify-draggable.js"
-    },
-    "@textcomplete/core": {
-        "devPath": "client/lib/original/textcomplete-core.js"
-    },
-    "@textcomplete/textarea": {
-        "devPath": "client/lib/original/textcomplete-textarea.js"
     },
     "autonumeric": {},
     "intl-tel-input": {

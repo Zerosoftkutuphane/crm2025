@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -33,13 +33,6 @@ use Espo\ORM\Defs\Params\FieldParam;
 
 class FieldUtil
 {
-    private const PARAM_ACTUAL = 'actual';
-    private const PARAM_NOT_ACTUAL = 'notActual';
-    private const PARAM_NAMING = 'naming';
-
-    private const NAMING_PREFIX = 'prefix';
-    private const NAMING_SUFFIX = 'suffix';
-
     /** @var array<string, array<string, string[]>> */
     private $fieldByTypeListCache = [];
 
@@ -66,7 +59,7 @@ class FieldUtil
             return [];
         }
 
-        $defs = $this->metadata->get("fields.$fieldType");
+        $defs = $this->metadata->get('fields.' . $fieldType);
 
         if (!$defs) {
             return [];
@@ -76,39 +69,37 @@ class FieldUtil
             $defs = get_object_vars($defs);
         }
 
-        $output = [];
+        $fieldList = [];
 
-        if (!isset($defs[$type . 'Fields'])) {
-            if ($type === self::PARAM_ACTUAL) {
-                $output[] = $name;
+        if (isset($defs[$type . 'Fields'])) {
+            $list = $defs[$type . 'Fields'];
+
+            $naming = 'suffix';
+
+            if (isset($defs['naming'])) {
+                $naming = $defs['naming'];
             }
 
-            return $output;
-        }
-
-        $list = $defs[$type . 'Fields'];
-
-        $naming = self::NAMING_SUFFIX;
-
-        if (isset($defs[self::PARAM_NAMING])) {
-            $naming = $defs[self::PARAM_NAMING];
-        }
-
-        if ($naming === self::NAMING_PREFIX) {
-            foreach ($list as $it) {
-                if ($it === '') {
-                    $output[] = $name;
-                } else {
-                    $output[] = $it . ucfirst($name);
+            if ($naming == 'prefix') {
+                foreach ($list as $f) {
+                    if ($f === '') {
+                        $fieldList[] = $name;
+                    } else {
+                        $fieldList[] = $f . ucfirst($name);
+                    }
+                }
+            } else {
+                foreach ($list as $f) {
+                    $fieldList[] = $name . ucfirst($f);
                 }
             }
         } else {
-            foreach ($list as $it) {
-                $output[] = $name . ucfirst($it);
+            if ($type == 'actual') {
+                $fieldList[] = $name;
             }
         }
 
-        return $output;
+        return $fieldList;
     }
 
     /**
@@ -116,9 +107,11 @@ class FieldUtil
      */
     public function getAdditionalActualAttributeList(string $entityType, string $name): array
     {
+        $attributeList = [];
+
         $list = $this->metadata->get(['entityDefs', $entityType, 'fields', $name, 'additionalAttributeList']);
 
-        if (!$list) {
+        if (empty($list)) {
             return [];
         }
 
@@ -128,21 +121,19 @@ class FieldUtil
             return [];
         }
 
-        $naming = $this->metadata->get("fields.$type.naming") ?? self::NAMING_SUFFIX;
+        $naming = $this->metadata->get(['fields', $type, 'naming'], 'suffix');
 
-        $output = [];
-
-        if ($naming === self::NAMING_PREFIX) {
-            foreach ($list as $it) {
-                $output[] = $it . ucfirst($name);
+        if ($naming == 'prefix') {
+            foreach ($list as $f) {
+                $attributeList[] = $f . ucfirst($name);
             }
         } else {
-            foreach ($list as $it) {
-                $output[] = $name . ucfirst($it);
+            foreach ($list as $f) {
+                $attributeList[] = $name . ucfirst($f);
             }
         }
 
-        return $output;
+        return $attributeList;
     }
 
     /**
@@ -153,9 +144,8 @@ class FieldUtil
     public function getActualAttributeList(string $entityType, string $field): array
     {
         return array_merge(
-            $this->getAttributeListByType($entityType, $field, self::PARAM_ACTUAL),
-            $this->getAdditionalActualAttributeList($entityType, $field),
-            $this->getFullNameAdditionalActualAttributeList($entityType, $field),
+            $this->getAttributeListByType($entityType, $field, 'actual'),
+            $this->getAdditionalActualAttributeList($entityType, $field)
         );
     }
 
@@ -166,7 +156,7 @@ class FieldUtil
      */
     public function getNotActualAttributeList(string $entityType, string $field): array
     {
-        return $this->getAttributeListByType($entityType, $field, self::PARAM_NOT_ACTUAL);
+        return $this->getAttributeListByType($entityType, $field, 'notActual');
     }
 
     /**
@@ -216,42 +206,39 @@ class FieldUtil
      */
     private function getFieldTypeAttributeListByType(string $fieldType, string $name, string $type): array
     {
-        /** @var ?array<string, mixed> $defs */
         $defs = $this->metadata->get(['fields', $fieldType]);
 
         if (!$defs) {
             return [];
         }
 
-        $output = [];
+        $attributeList = [];
 
-        if (!isset($defs[$type . 'Fields'])) {
-            if ($type === self::PARAM_ACTUAL) {
-                $output[] = $name;
+        if (isset($defs[$type . 'Fields'])) {
+            $list = $defs[$type . 'Fields'];
+
+            $naming = 'suffix';
+
+            if (isset($defs['naming'])) {
+                $naming = $defs['naming'];
             }
 
-            return $output;
-        }
-
-        $list = $defs[$type . 'Fields'];
-
-        $naming = self::NAMING_SUFFIX;
-
-        if (isset($defs['naming'])) {
-            $naming = $defs['naming'];
-        }
-
-        if ($naming === self::NAMING_PREFIX) {
-            foreach ($list as $f) {
-                $output[] = $f . ucfirst($name);
+            if ($naming == 'prefix') {
+                foreach ($list as $f) {
+                    $attributeList[] = $f . ucfirst($name);
+                }
+            } else {
+                foreach ($list as $f) {
+                    $attributeList[] = $name . ucfirst($f);
+                }
             }
         } else {
-            foreach ($list as $f) {
-                $output[] = $name . ucfirst($f);
+            if ($type == 'actual') {
+                $attributeList[] = $name;
             }
         }
 
-        return $output;
+        return $attributeList;
     }
 
     /**
@@ -262,8 +249,8 @@ class FieldUtil
     public function getFieldTypeAttributeList(string $fieldType, string $name): array
     {
         return array_merge(
-            $this->getFieldTypeAttributeListByType($fieldType, $name, self::PARAM_ACTUAL),
-            $this->getFieldTypeAttributeListByType($fieldType, $name, self::PARAM_NOT_ACTUAL)
+            $this->getFieldTypeAttributeListByType($fieldType, $name, 'actual'),
+            $this->getFieldTypeAttributeListByType($fieldType, $name, 'notActual')
         );
     }
 
@@ -317,14 +304,5 @@ class FieldUtil
         }
 
         return null;
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getFullNameAdditionalActualAttributeList(string $entityType, string $field): array
-    {
-        /** @var string[] */
-        return $this->metadata->get("entityDefs.$entityType.fields.$field.fullNameAdditionalAttributeList") ?? [];
     }
 }

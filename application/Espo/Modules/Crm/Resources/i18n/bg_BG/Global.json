@@ -36,8 +36,7 @@
     "Activities": "Активности",
     "KnowledgeBaseArticle": "Статия от документацията",
     "KnowledgeBaseCategory": "Категория от документацията",
-    "CampaignLogRecord": "Запис в дневника на кампанията",
-    "TargetListCategory": "Категория на целевия списък"
+    "CampaignLogRecord": "Запис в дневника на кампанията"
   },
   "scopeNamesPlural": {
     "Account": "Клиенти",
@@ -60,8 +59,7 @@
     "Activities": "Активности",
     "KnowledgeBaseArticle": "Документация",
     "KnowledgeBaseCategory": "Категории за документация",
-    "CampaignLogRecord": "Записи в дневника на кампанията",
-    "TargetListCategory": "Категории на целевия списък"
+    "CampaignLogRecord": "Записи в дневника на кампанията"
   },
   "dashlets": {
     "Leads": "Моите потенциални продажби",

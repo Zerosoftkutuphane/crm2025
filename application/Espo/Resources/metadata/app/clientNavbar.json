@@ -30,7 +30,7 @@
                     "isAdminOnly": true
                 }
             ]
-        },
+        },  
         "preferences": {
             "order": 1,
             "groupIndex": 1,

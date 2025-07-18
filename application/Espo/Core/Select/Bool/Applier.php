@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -114,8 +114,8 @@ class Applier
     {
         $queryAfter = $queryBuilder->build();
 
-        $joinCountBefore = count($queryBefore->getJoins());
-        $joinCountAfter = count($queryAfter->getJoins());
+        $joinCountBefore = count($queryBefore->getJoins()) + count($queryBefore->getLeftJoins());
+        $joinCountAfter = count($queryAfter->getJoins()) + count($queryAfter->getLeftJoins());
 
         if ($joinCountBefore < $joinCountAfter) {
             $queryBuilder->distinct();

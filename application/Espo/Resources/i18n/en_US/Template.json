@@ -20,8 +20,7 @@
         "pageHeight": "Page Height (mm)",
         "fontFace": "Font",
         "title": "Title",
-        "style": "Style",
-        "status": "Status"
+        "style": "Style"
     },
     "links": {
     },
@@ -29,10 +28,6 @@
         "Create Template": "Create Template"
     },
     "options": {
-        "status": {
-            "Active": "Active",
-            "Inactive": "Inactive"
-        },
         "pageOrientation": {
             "Portrait": "Portrait",
             "Landscape": "Landscape"

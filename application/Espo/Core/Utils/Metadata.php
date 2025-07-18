@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -289,20 +289,20 @@ class Metadata
         switch ($key1) {
             case 'entityDefs':
                 // Unset related additional fields, e.g. a field with an 'address' type.
-                $defs = $this->get('fields');
+                $fieldDefinitionList = $this->get('fields');
 
                 $unsetList = $unsets;
 
                 foreach ($unsetList as $unsetItem) {
                     if (preg_match('/fields\.([^.]+)/', $unsetItem, $matches)) {
-                        $field = $matches[1];
-                        $fieldPath = [$key1, $key2, 'fields', $field];
+                        $fieldName = $matches[1];
+                        $fieldPath = [$key1, $key2, 'fields', $fieldName];
 
                         // @todo Revise the need. Additional fields are supposed to exist only in the build?
-                        $additionalFields = $this->builderHelper->getAdditionalFields(
-                            field: $field,
-                            params: $this->get($fieldPath, []),
-                            defs: $defs,
+                        $additionalFields = $this->builderHelper->getAdditionalFieldList(
+                            $fieldName,
+                            $this->get($fieldPath, []),
+                            $fieldDefinitionList
                         );
 
                         if (is_array($additionalFields)) {

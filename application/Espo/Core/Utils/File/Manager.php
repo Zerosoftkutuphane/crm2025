@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -1115,8 +1115,8 @@ class Manager
 
     /**
      * Get exists path.
-     * Example: If `/var/www/espocrm/custom/someFile.php` file doesn't exist,
-     * result will be `/var/www/espocrm/custom`.
+     * Example: If `/var/www/EspoCRM/custom/someFile.php` file doesn't exist,
+     * result will be `/var/www/EspoCRM/custom`.
      */
     private function getExistsPath(string $path): string
     {

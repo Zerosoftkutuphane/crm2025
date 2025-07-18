@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -36,9 +36,6 @@ class Params
     private ?string $queue = null;
     private ?string $group = null;
     private int $limit = 0;
-    /** @var ?Params[] */
-    private ?array $subQueueParamsList = null;
-    private float $weight = 1.0;
 
     public function withUseProcessPool(bool $useProcessPool): self
     {
@@ -80,25 +77,6 @@ class Params
         return $obj;
     }
 
-    public function withWeight(float $weight): self
-    {
-        $obj = clone $this;
-        $obj->weight = $weight;
-
-        return $obj;
-    }
-
-    /**
-     * @param ?Params[] $subQueueParamsList
-     */
-    public function withSubQueueParamsList(?array $subQueueParamsList): self
-    {
-        $obj = clone $this;
-        $obj->subQueueParamsList = $subQueueParamsList;
-
-        return $obj;
-    }
-
     public function useProcessPool(): bool
     {
         return $this->useProcessPool;
@@ -122,19 +100,6 @@ class Params
     public function getLimit(): int
     {
         return $this->limit;
-    }
-
-    public function getWeight(): float
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @return ?Params[]
-     */
-    public function getSubQueueParamsList(): ?array
-    {
-        return $this->subQueueParamsList;
     }
 
     public static function create(): self

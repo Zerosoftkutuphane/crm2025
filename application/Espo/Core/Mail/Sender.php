@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,6 @@ namespace Espo\Core\Mail;
 
 use Espo\Core\FileStorage\Manager as FileStorageManager;
 use Espo\Core\Mail\Exceptions\NoSmtp;
-use Espo\Core\Mail\Sender\MessageContainer;
 use Espo\Core\Mail\Sender\TransportPreparatorFactory;
 use Espo\Core\ORM\Repository\Option\SaveOption;
 use Espo\ORM\EntityCollection;
@@ -76,7 +75,6 @@ class Sender
     private $attachmentList = null;
     /** @var array{string, string}[] */
     private array $headers = [];
-    private ?MessageContainer $messageContainer = null;
 
     private const ATTACHMENT_ATTR_CONTENTS = 'contents';
 
@@ -100,7 +98,6 @@ class Sender
         $this->attachmentList = null;
         $this->overrideParams = [];
         $this->headers = [];
-        $this->messageContainer = null;
     }
 
     /**
@@ -184,17 +181,6 @@ class Sender
     {
         /** @noinspection PhpDeprecationInspection */
         return $this->setEnvelopeOptions($options);
-    }
-
-    /**
-     * @since 9.2.0
-     * @internal
-     */
-    public function withMessageContainer(MessageContainer $messageContainer): self
-    {
-        $this->messageContainer = $messageContainer;
-
-        return $this;
     }
 
     /**
@@ -320,10 +306,6 @@ class Sender
         }
 
         $envelope = $this->prepareEnvelope($message);
-
-        if ($this->messageContainer) {
-            $this->messageContainer->message = new Sender\Message($message);
-        }
 
         try {
             $this->transport->send($message, $envelope);

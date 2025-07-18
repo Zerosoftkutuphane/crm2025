@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -52,7 +52,7 @@ class CheckEmailAccounts implements Job
         try {
             $this->service->fetch($targetId);
         } catch (Throwable $e) {
-            throw new RuntimeException("CheckEmailAccounts job failed, $targetId; {$e->getMessage()}", 0, $e);
+            throw new RuntimeException("CheckInboundEmails job failed, $targetId; {$e->getMessage()}", 0, $e);
         }
     }
 }

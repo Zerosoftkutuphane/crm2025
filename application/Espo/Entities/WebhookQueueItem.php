@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,6 @@
 namespace Espo\Entities;
 
 use Espo\Core\Field\DateTime;
-use Espo\Core\Field\LinkParent;
 use Espo\Core\ORM\Entity;
 use stdClass;
 
@@ -49,17 +48,16 @@ class WebhookQueueItem extends Entity
 
     public function setStatus(string $status): self
     {
-        return $this->set('status', $status);
-    }
+        $this->set('status', $status);
 
-    public function setData(stdClass $data): self
-    {
-        return $this->set('data', $data);
+        return $this;
     }
 
     public function setAttempts(?int $attempts): self
     {
-        return $this->set('attempts', $attempts);
+        $this->set('attempts', $attempts);
+
+        return $this;
     }
 
     public function setProcessAt(?DateTime $processAt): self
@@ -98,28 +96,8 @@ class WebhookQueueItem extends Entity
         return $this->get('targetId');
     }
 
-    public function getWebhookId(): string
-    {
-        return $this->get('webhookId') ?? '';
-    }
-
     public function getData(): stdClass
     {
         return $this->get('data') ?? (object) [];
-    }
-
-    public function setEvent(string $event): self
-    {
-        return $this->set('event', $event);
-    }
-
-    public function setWebhook(Webhook $webhook): self
-    {
-        return $this->setRelatedLinkOrEntity('webhook', $webhook);
-    }
-
-    public function setTarget(Entity|LinkParent $target): self
-    {
-        return $this->setRelatedLinkOrEntity('target', $target);
     }
 }

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,13 @@ namespace Espo\Core\Formula\Functions\DatetimeGroup;
 
 class AddMinutesType extends AddIntervalType
 {
+    /**
+     * @var string
+     */
+    protected $intervalTypeString = 'minutes';
 
-    protected string $intervalTypeString = 'minutes';
-    protected bool $timeOnly = true;
+    /**
+     * @var bool
+     */
+    protected $timeOnly = true;
 }

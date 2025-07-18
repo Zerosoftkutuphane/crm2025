@@ -50,8 +50,7 @@
             "provider": "Google",
             "height": 300,
             "exportDisabled": true,
-            "importDisabled": true,
-            "detailLayoutIncompatibleFieldList": []
+            "importDisabled": true
         }
     },
     "params": [

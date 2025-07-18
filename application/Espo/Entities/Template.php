@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -36,8 +36,6 @@ class Template extends Entity
 {
     public const ENTITY_TYPE = 'Template';
 
-    public const STATUS_ACTIVE = 'Active';
-
     public function getTargetEntityType(): string
     {
         $entityType = $this->get('entityType');
@@ -47,10 +45,5 @@ class Template extends Entity
         }
 
         return $entityType;
-    }
-
-    public function isActive(): bool
-    {
-        return $this->get('status') === self::STATUS_ACTIVE;
     }
 }

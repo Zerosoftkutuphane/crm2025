@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,9 +29,6 @@
 
 namespace Espo\Tools\Pdf\Dompdf;
 
-use Dompdf\Adapter\CPDF;
-use Dompdf\Dompdf;
-use Espo\Core\FileStorage\Manager;
 use Espo\ORM\Entity;
 use Espo\Tools\Pdf\Contents;
 use Espo\Tools\Pdf\Data;
@@ -39,19 +36,17 @@ use Espo\Tools\Pdf\Dompdf\Contents as DompdfContents;
 use Espo\Tools\Pdf\EntityPrinter as EntityPrinterInterface;
 use Espo\Tools\Pdf\Params;
 use Espo\Tools\Pdf\Template;
-use RuntimeException;
 
 class EntityPrinter implements EntityPrinterInterface
 {
     public function __construct(
         private DompdfInitializer $dompdfInitializer,
-        private HtmlComposer $htmlComposer,
-        private Manager $fileStorageManager,
+        private HtmlComposer $htmlComposer
     ) {}
 
     public function print(Template $template, Entity $entity, Params $params, Data $data): Contents
     {
-        $pdf = $this->dompdfInitializer->initialize($template, $params);
+        $pdf = $this->dompdfInitializer->initialize($template);
 
         $headHtml = $this->htmlComposer->composeHead($template, $entity);
         $headerFooterHtml = $this->htmlComposer->composeHeaderFooter($template, $entity, $params, $data);
@@ -62,34 +57,6 @@ class EntityPrinter implements EntityPrinterInterface
         $pdf->loadHtml($html);
         $pdf->render();
 
-        $this->addAttachments($pdf, $data);
-
         return new DompdfContents($pdf);
-    }
-
-    private function addAttachments(Dompdf $pdf, Data $data): void
-    {
-        if ($data->getAttachments() === []) {
-            return;
-        }
-
-        $canvas = $pdf->getCanvas();
-
-        if (!$canvas instanceof CPDF) {
-            throw new RuntimeException("Non CPDF canvas");
-        }
-
-        $cPdf = $canvas->get_cpdf();
-
-        foreach ($data->getAttachments() as $i => $attachmentWrapper) {
-            $attachment = $attachmentWrapper->getAttachment();
-
-            $path = $this->fileStorageManager->getLocalFilePath($attachment);
-
-            $name = $attachment->getName() ?? 'file-' . $i;
-            $description = $attachmentWrapper->getDescription() ?? '';
-
-            $cPdf->addEmbeddedFile($path, $name, $description);
-        }
     }
 }

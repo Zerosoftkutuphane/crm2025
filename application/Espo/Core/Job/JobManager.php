@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -122,13 +122,6 @@ class JobManager
             ::create()
             ->withUseProcessPool($this->useProcessPool)
             ->withLimit($limit);
-
-        $subQueueParams = [
-            $params->withWeight(0.5),
-            $params->withQueue(QueueName::M0)->withWeight(0.5),
-        ];
-
-        $params = $params->withSubQueueParamsList($subQueueParams);
 
         $this->queueProcessor->process($params);
     }

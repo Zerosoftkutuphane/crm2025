@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,76 +29,61 @@
 
 namespace Espo\Hooks\Common;
 
-use Espo\Core\Hook\Hook\AfterRemove;
-use Espo\Core\Hook\Hook\AfterSave;
-use Espo\Core\Webhook\Options;
-use Espo\Entities\User;
 use Espo\ORM\Entity;
 use Espo\Core\ORM\Entity as CoreEntity;
 
 use Espo\Core\ORM\Repository\Option\SaveOption;
 use Espo\Core\Utils\Metadata;
 use Espo\Core\Webhook\Manager as WebhookManager;
-use Espo\ORM\Repository\Option\RemoveOptions;
-use Espo\ORM\Repository\Option\SaveOptions;
 
-/**
- * @implements AfterSave<Entity>
- * @implements AfterRemove<Entity>
- */
-class Webhook implements AfterSave, AfterRemove
+class Webhook
 {
     public static int $order = 101;
 
-    public function __construct(
-        private Metadata $metadata,
-        private WebhookManager $webhookManager,
-        private User $user,
-    ) {}
+    public function __construct(private Metadata $metadata, private WebhookManager $webhookManager)
+    {}
 
-    public function afterSave(Entity $entity, SaveOptions $options): void
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function afterSave(Entity $entity, array $options): void
     {
-        if (
-            $this->toSkip($options, $entity) ||
-            !$entity instanceof CoreEntity
-        ) {
+        if (!empty($options[SaveOption::SILENT])) {
             return;
         }
 
-        $userIdParam = $entity->isNew() ? SaveOption::CREATED_BY_ID : SaveOption::MODIFIED_BY_ID;
+        if (!$this->metadata->get(['scopes', $entity->getEntityType(), 'object'])) {
+            return;
+        }
 
-        $eventOptions = new Options(
-            userId: $options->get($userIdParam) ?? $this->user->getId(),
-        );
+        if (!$entity instanceof CoreEntity) {
+            return;
+        }
 
         if ($entity->isNew()) {
-            $this->webhookManager->processCreate($entity, $eventOptions);
+            $this->webhookManager->processCreate($entity);
+        } else {
+            $this->webhookManager->processUpdate($entity);
+        }
+    }
 
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function afterRemove(Entity $entity, array $options): void
+    {
+        if (!empty($options[SaveOption::SILENT])) {
             return;
         }
 
-        $this->webhookManager->processUpdate($entity, $eventOptions);
-    }
-
-    public function afterRemove(Entity $entity, RemoveOptions $options): void
-    {
-        if (
-            $this->toSkip($options, $entity) ||
-            !$entity instanceof CoreEntity
-        ) {
+        if (!$this->metadata->get(['scopes', $entity->getEntityType(), 'object'])) {
             return;
         }
 
-        $eventOptions = new Options(
-            userId: $options->get(SaveOption::MODIFIED_BY_ID) ?? $this->user->getId(),
-        );
+        if (!$entity instanceof CoreEntity) {
+            return;
+        }
 
-        $this->webhookManager->processDelete($entity, $eventOptions);
-    }
-
-    private function toSkip(SaveOptions|RemoveOptions $options, Entity $entity): bool
-    {
-        return $options->get(SaveOption::SILENT) ||
-            !$this->metadata->get("scopes.{$entity->getEntityType()}.object");
+        $this->webhookManager->processDelete($entity);
     }
 }

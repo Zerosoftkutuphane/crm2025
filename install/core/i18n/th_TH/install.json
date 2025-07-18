@@ -126,8 +126,8 @@
         "windows": "<br> <pre> 1. ค้นหาไฟล์ httpd.conf (โดยปกติคุณจะพบในโฟลเดอร์ที่เรียกว่า conf, config หรืออะไรก็ตาม"
       },
       "nginx": {
-        "linux": "<br> \\ n <pre> \\ n {NGINX} \\ n </pre> <br> สำหรับข้อมูลเพิ่มเติมโปรดไปที่คำแนะนำ <a href = \\ \"https://www.espocrm.com/documentation",
-        "windows": "<br> \\ n <pre> \\ n {NGINX} \\ n </pre> <br> สำหรับข้อมูลเพิ่มเติมโปรดไปที่คำแนะนำ <a href = \\ \"https://www.espocrm.com/documentation"
+        "linux": "<br> \\ n <pre> \\ n {NGINX} \\ n </pre> <br> สำหรับข้อมูลเพิ่มเติมโปรดไปที่คำแนะนำ <a href = \\ \"https://www.EspoCRM.com/documentation",
+        "windows": "<br> \\ n <pre> \\ n {NGINX} \\ n </pre> <br> สำหรับข้อมูลเพิ่มเติมโปรดไปที่คำแนะนำ <a href = \\ \"https://www.EspoCRM.com/documentation"
       }
     }
   },

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -47,7 +47,7 @@ use Espo\Core\Utils\Util;
  * - `Espo\Hooks\{EntityType}\MyHook` – an entity type specific hook;
  * - `Espo\Modules\{ModuleName}\Hooks\{EntityType}\MyHook` – in a module.
  *
- * @link https://docs.espocrm.com/development/hooks/
+ * @link https://docs.EspoCRM.com/development/hooks/
  */
 class HookManager
 {

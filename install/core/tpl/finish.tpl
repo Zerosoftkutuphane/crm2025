@@ -17,7 +17,7 @@
                         </pre>
 
                         <p>
-                            {assign var="link" value="<a target=\"_blank\" href=\"https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab\">{$langs['labels']['Setup instructions']}</a>"}
+                            {assign var="link" value="<a target=\"_blank\" href=\"https://www.EspoCRM.com/documentation/administration/server-configuration/#user-content-setup-a-crontab\">{$langs['labels']['Setup instructions']}</a>"}
 
                             {assign var="message" value="{$langs['labels']['Crontab setup instructions']|replace:'{SETUP_INSTRUCTIONS}':$link}"}
                             {$message}

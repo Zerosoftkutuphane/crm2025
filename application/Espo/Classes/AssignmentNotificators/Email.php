@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,6 @@
 namespace Espo\Classes\AssignmentNotificators;
 
 use Espo\Core\Field\DateTime;
-use Espo\Core\Field\LinkParent;
 use Espo\Core\Name\Field;
 use Espo\Core\Notification\DefaultAssignmentNotificator;
 use Espo\Entities\EmailAddress;
@@ -274,16 +273,13 @@ class Email implements AssignmentNotificator
                 continue;
             }
 
-            $notification = $this->entityManager->getRDBRepositoryByClass(Notification::class)->getNew();
-
-            $notification
-                ->setType(Notification::TYPE_EMAIL_RECEIVED)
-                ->setUserId($userId)
-                ->setData($data)
-                ->setRelated(LinkParent::createFromEntity($entity))
-                ->setActionId($params->getActionId());
-
-            $this->entityManager->saveEntity($notification);
+            $this->entityManager->createEntity(Notification::ENTITY_TYPE, [
+                'type' => Notification::TYPE_EMAIL_RECEIVED,
+                'userId' => $userId,
+                'data' => $data,
+                'relatedId' => $entity->getId(),
+                'relatedType' => EmailEntity::ENTITY_TYPE,
+            ]);
         }
     }
 }

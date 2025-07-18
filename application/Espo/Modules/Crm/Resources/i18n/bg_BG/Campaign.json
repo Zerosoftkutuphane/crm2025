@@ -50,8 +50,7 @@
       "Television": "Телевизия",
       "Radio": "Радио",
       "Newsletter": "Имейл бюлетин",
-      "Mail": "Електронна поща",
-      "Informational Email": "Информационен имейл"
+      "Mail": "Електронна поща"
     },
     "status": {
       "Planning": "Планиране",
@@ -80,8 +79,7 @@
   },
   "messages": {
     "unsubscribed": "Отписахте се от нашия имейл бюлетин",
-    "subscribedAgain": "Абонирахте се отново.",
-    "cannotChangeType": "Не може да се промени типът."
+    "subscribedAgain": "Абонирахте се отново."
   },
   "tooltips": {
     "targetLists": "Цели, които трябва да получават съобщения.",

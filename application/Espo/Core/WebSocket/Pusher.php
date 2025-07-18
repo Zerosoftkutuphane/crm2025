@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -120,11 +120,9 @@ class Pusher implements WampServerInterface
         $checkCommand = $this->getAccessCheckCommandForTopic($conn, $topic);
 
         if ($checkCommand) {
-            $checkCommand = $checkCommand . ' 2>&1';
+            $checkResult = shell_exec($checkCommand);
 
-            $checkResult = exec($checkCommand, $o, $exitCode);
-
-            if ($checkResult !== 'true' || $exitCode !== 0) {
+            if ($checkResult !== 'true') {
                 if ($this->isDebugMode) {
                     $this->log("$connectionId: check access failed for topic $topicId for user $userId");
                 }

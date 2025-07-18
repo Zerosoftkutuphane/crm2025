@@ -11,16 +11,14 @@
     "optedOutCount": "Отписали се",
     "targetStatus": "Целеви статус",
     "isOptedOut": "Отписал се",
-    "sourceCampaign": "Източник на кампанията",
-    "category": "Категория"
+    "sourceCampaign": "Източник на кампанията"
   },
   "links": {
     "accounts": "Клиенти",
     "contacts": "Контакти",
     "leads": "Потенциални продажба",
     "campaigns": "Кампании",
-    "massEmails": "Масови имейли",
-    "category": "Категория"
+    "massEmails": "Масови имейли"
   },
   "options": {
     "type": {

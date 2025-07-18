@@ -37,8 +37,7 @@
             "view": "views/fields/teams"
         },
         "parent": {
-            "type": "link",
-            "view": "views/fields/link-category-tree"
+            "type": "link"
         },
         "childList": {
             "type": "jsonArray",
@@ -79,7 +78,7 @@
         }
     },
     "collection": {
-        "orderBy": "name",
+        "orderBy": "parent",
         "order": "asc"
     },
     "additionalTables": {

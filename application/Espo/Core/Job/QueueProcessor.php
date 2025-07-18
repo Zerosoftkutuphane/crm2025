@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Core\Job;
 
-use Espo\Core\Job\QueueProcessor\Picker;
 use Espo\Entities\Job as JobEntity;
 use Espo\Core\Job\QueueProcessor\Params;
 use Espo\Core\ORM\EntityManager;
@@ -47,7 +46,6 @@ class QueueProcessor
         private JobRunner $jobRunner,
         private AsyncPoolFactory $asyncPoolFactory,
         private EntityManager $entityManager,
-        private Picker $picker,
         ConfigDataProvider $configDataProvider
     ) {
         $this->noTableLocking = $configDataProvider->noTableLocking();
@@ -56,9 +54,12 @@ class QueueProcessor
     public function process(Params $params): void
     {
         $pool = $params->useProcessPool() ?
-            $this->asyncPoolFactory->create() : null;
+            $this->asyncPoolFactory->create() :
+            null;
 
-        foreach ($this->picker->pick($params) as $job) {
+        $pendingJobList = $this->queueUtil->getPendingJobList($params);
+
+        foreach ($pendingJobList as $job) {
             $this->processJob($params, $job, $pool);
         }
 

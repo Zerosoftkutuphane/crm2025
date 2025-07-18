@@ -170,7 +170,7 @@
     "installExtension": "Udvidelsen {name} {version} er klar til installation",
     "newVersionIsAvailable": "Ny EspoCRM version {latestVersion} er tilgængelig",
     "uninstallConfirmation": "Er du sikker på du vil afinstallere denne udvidelse?",
-    "cronIsNotConfigured": "Planlagte job kører ikke. Derfor virker indgående mails, notifikationer og påmindelser ikke. Følg venligst [instuctions] (https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab) for at konfigurere cron-job.",
+    "cronIsNotConfigured": "Planlagte job kører ikke. Derfor virker indgående mails, notifikationer og påmindelser ikke. Følg venligst [instuctions] (https://www.EspoCRM.com/documentation/administration/server-configuration/#user-content-setup-a-crontab) for at konfigurere cron-job.",
     "newExtensionVersionIsAvailable": "Ny {extensionName} version {latestVersion} er tilgængelig"
   },
   "descriptions": {

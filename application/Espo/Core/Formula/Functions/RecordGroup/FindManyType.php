@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -33,11 +33,9 @@ use Espo\Core\Exceptions\BadRequest;
 use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\Formula\EvaluatedArgumentList;
 use Espo\Core\Formula\Exceptions\BadArgumentType;
-use Espo\Core\Formula\Exceptions\BadArgumentValue;
 use Espo\Core\Formula\Exceptions\Error as FormulaError;
 use Espo\Core\Formula\Exceptions\TooFewArguments;
 use Espo\Core\Formula\Func;
-use Espo\Core\Formula\Functions\RecordGroup\Util\FindQueryUtil;
 use Espo\Core\Select\SelectBuilderFactory;
 use Espo\ORM\Entity;
 use Espo\ORM\EntityManager;
@@ -78,16 +76,8 @@ class FindManyType implements Func
             throw BadArgumentType::create(3, 'string|null');
         }
 
-        if (!is_bool($order) && !is_string($order)) {
+        if (!is_bool($order) && !is_string($orderBy)) {
             throw BadArgumentType::create(4, 'string|bool');
-        }
-
-        if (is_string($order)) {
-            $order = strtoupper($order);
-
-            if ($order !== Order::ASC && $order !== Order::DESC) {
-                throw BadArgumentValue::create(4, 'Bad order value.');
-            }
         }
 
         $builder = $this->selectBuilderFactory
@@ -103,7 +93,13 @@ class FindManyType implements Func
                 $filter = $arguments[4];
             }
 
-            (new FindQueryUtil())->applyFilter($builder, $filter, 5);
+            if ($filter && !is_string($filter)) {
+                throw BadArgumentType::create(5, 'string');
+            }
+
+            if ($filter) {
+                $builder->withPrimaryFilter($filter);
+            }
         } else {
             $i = 4;
 

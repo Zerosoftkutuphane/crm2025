@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,9 +29,10 @@
 
 namespace Espo\Core\Job;
 
-use Espo\Core\Field\DateTime as DateTimeField;
+use Espo\ORM\EntityManager;
+use Espo\Core\Utils\DateTime;
 use Espo\Core\Job\Job\Data;
-use Espo\Core\Job\JobScheduler\Creator;
+use Espo\Entities\Job as JobEntity;
 
 use ReflectionClass;
 use DateTimeInterface;
@@ -41,11 +42,11 @@ use RuntimeException;
 use TypeError;
 
 /**
- * Creates jobs in a queue.
+ * Creates a job record in database.
  */
 class JobScheduler
 {
-    /** @var ?class-string<Job|JobDataLess> */
+    /** @var ?class-string */
     private ?string $className = null;
     private ?string $queue = null;
     private ?string $group = null;
@@ -53,9 +54,8 @@ class JobScheduler
     private ?DateTimeImmutable $time = null;
     private ?DateInterval $delay = null;
 
-    public function __construct(
-        private Creator $creator,
-    ) {}
+    public function __construct(private EntityManager $entityManager)
+    {}
 
     /**
      * A class name of the job. Should implement the `Job` interface.
@@ -158,7 +158,7 @@ class JobScheduler
         return $this;
     }
 
-    public function schedule(): void
+    public function schedule(): JobEntity
     {
         if (!$this->className) {
             throw new RuntimeException("Class name is not set.");
@@ -168,26 +168,24 @@ class JobScheduler
             throw new RuntimeException("Can't have both queue and group.");
         }
 
-        $time = $this->time;
+        $time = $this->time ?? new DateTimeImmutable();
 
-        if (!$this->time && $this->delay) {
-            $time = new DateTimeImmutable();
-        }
-
-        if ($time && $this->delay) {
+        if ($this->delay) {
             $time = $time->add($this->delay);
         }
 
         $data = $this->data ?? Data::create();
 
-        $creatorData = new Creator\Data(
-            className: $this->className,
-            queue: $this->queue,
-            group: $this->group,
-            data: $data,
-            time: $time ? DateTimeField::fromDateTime($time) : null,
-        );
-
-        $this->creator->create($creatorData);
+        /** @var JobEntity */
+        return $this->entityManager->createEntity(JobEntity::ENTITY_TYPE, [
+            'name' => $this->className,
+            'className' => $this->className,
+            'queue' => $this->queue,
+            'group' => $this->group,
+            'targetType' => $data->getTargetType(),
+            'targetId' => $data->getTargetId(),
+            'data' => $data->getRaw(),
+            'executeTime' => $time->format(DateTime::SYSTEM_DATE_TIME_FORMAT),
+        ]);
     }
 }

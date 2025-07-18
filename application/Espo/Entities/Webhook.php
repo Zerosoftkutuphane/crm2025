@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -35,9 +35,9 @@ class Webhook extends Entity
 {
     public const ENTITY_TYPE = 'Webhook';
 
-    public function getEvent(): string
+    public function getEvent(): ?string
     {
-        return $this->get('event') ?? '';
+        return $this->get('event');
     }
 
     public function getSecretKey(): ?string
@@ -63,15 +63,5 @@ class Webhook extends Entity
     public function getTargetEntityType(): string
     {
         return $this->get('entityType');
-    }
-
-    public function setSkipOwn(bool $skipOwn): self
-    {
-        return $this->set('skipOwn', $skipOwn);
-    }
-
-    public function skipOwn(): bool
-    {
-        return (bool) $this->get('skipOwn');
     }
 }

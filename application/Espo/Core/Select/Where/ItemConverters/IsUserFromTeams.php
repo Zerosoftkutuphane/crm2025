@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -66,14 +66,8 @@ class IsUserFromTeams implements ItemConverter
             return WhereClause::create();
         }
 
-        if (!is_array($value)) {
-            $value = [$value];
-        }
-
-        foreach ($value as $it) {
-            if (!is_string($it) && !is_int($it)) {
-                throw new BadRequest("Bad where item. Bad array item.");
-            }
+        if (is_array($value) && count($value) == 1) {
+            $value = $value[0];
         }
 
         $entityDefs = $this->ormDefs->getEntity($this->entityType);

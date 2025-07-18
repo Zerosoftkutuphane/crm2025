@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -54,7 +54,7 @@ return [
     'recordsPerPageSelect' => 10,
     'recordsPerPageKanban' => 5,
     'applicationName' => 'EspoCRM',
-    'version' => '@@version',
+    'version' => '9.1.7',
     'timeZone' => 'UTC',
     'dateFormat' => 'DD.MM.YYYY',
     'timeFormat' => 'HH:mm',
@@ -67,15 +67,15 @@ return [
     'baseCurrency' => 'USD',
     'currencyRates' => [],
     'currencyNoJoinMode' => false,
-    'outboundEmailIsShared' => false,
+    'outboundEmailIsShared' => true,
     'outboundEmailFromName' => 'EspoCRM',
-    'outboundEmailFromAddress' => null,
+    'outboundEmailFromAddress' => '',
     'smtpServer' => null,
-    'smtpPort' => 587,
+    'smtpPort' => 465,
     'smtpAuth' => true,
     'smtpSecurity' => 'TLS',
-    'smtpUsername' => null,
-    'smtpPassword' => null,
+    'smtpUsername' => '',
+    'smtpPassword' => '',
     'language' => 'en_US',
     'logger' => [
         'path' => 'data/logs/espo.log',
@@ -176,7 +176,7 @@ return [
     'adminNotificationsNewExtensionVersion' => true,
     'assignmentEmailNotifications' => false,
     'assignmentEmailNotificationsEntityList' => ['Lead', 'Opportunity', 'Task', 'Case'],
-    'assignmentNotificationsEntityList' => ['Meeting', 'Call', 'Email'],
+    'assignmentNotificationsEntityList' => ['Call', 'Email'],
     "portalStreamEmailNotifications" => true,
     'streamEmailNotificationsEntityList' => ['Case'],
     'streamEmailNotificationsTypeList' => ['Post', 'Status', 'EmailReceived'],

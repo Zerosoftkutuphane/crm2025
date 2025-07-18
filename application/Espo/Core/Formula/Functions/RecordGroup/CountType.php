@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,12 +29,11 @@
 
 namespace Espo\Core\Formula\Functions\RecordGroup;
 
-use Espo\Core\Exceptions\BadRequest;
-use Espo\Core\Exceptions\Forbidden;
-use Espo\Core\Formula\ArgumentList;
-use Espo\Core\Formula\Exceptions\Error;
-use Espo\Core\Formula\Functions\BaseFunction;
-use Espo\Core\Formula\Functions\RecordGroup\Util\FindQueryUtil;
+use Espo\Core\Formula\{
+    Functions\BaseFunction,
+    ArgumentList,
+};
+
 use Espo\Core\Di;
 
 class CountType extends BaseFunction implements
@@ -55,7 +54,7 @@ class CountType extends BaseFunction implements
         if (count($args) < 3) {
             $filter = null;
 
-            if (count($args) === 2) {
+            if (count($args) == 2) {
                 $filter = $this->evaluate($args[1]);
             }
 
@@ -63,16 +62,18 @@ class CountType extends BaseFunction implements
                 ->create()
                 ->from($entityType);
 
-            (new FindQueryUtil())->applyFilter($builder, $filter, 2);
-
-            try {
-                return $this->entityManager
-                    ->getRDBRepository($entityType)
-                    ->clone($builder->build())
-                    ->count();
-            } catch (BadRequest|Forbidden $e) {
-                throw new Error($e->getMessage(), 0, $e);
+            if ($filter && !is_string($filter)) {
+                $this->throwBadArgumentType(2, 'string');
             }
+
+            if ($filter) {
+                $builder->withPrimaryFilter($filter);
+            }
+
+            return $this->entityManager
+                ->getRDBRepository($entityType)
+                ->clone($builder->build())
+                ->count();
         }
 
         $whereClause = [];

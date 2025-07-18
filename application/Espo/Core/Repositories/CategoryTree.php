@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,8 +31,6 @@ namespace Espo\Core\Repositories;
 
 use Espo\ORM\Entity;
 use Espo\ORM\Mapper\BaseMapper;
-use Espo\ORM\Name\Attribute;
-use Espo\ORM\Query\Part\Order;
 
 /**
  * @template TEntity of Entity
@@ -40,18 +38,6 @@ use Espo\ORM\Query\Part\Order;
  */
 class CategoryTree extends Database
 {
-    private const ATTR_ORDER = 'order';
-    private const ATTR_PARENT_ID = 'parentId';
-
-    protected function beforeSave(Entity $entity, array $options = [])
-    {
-        if ($entity->get(self::ATTR_ORDER) === null && $entity->hasAttribute(self::ATTR_ORDER)) {
-            $this->setOrderToEnd($entity);
-        }
-
-        parent::beforeSave($entity, $options);
-    }
-
     /**
      * @param array<string, mixed> $options
      * @return void
@@ -60,7 +46,7 @@ class CategoryTree extends Database
     {
         parent::afterSave($entity, $options);
 
-        $parentId = $entity->get(self::ATTR_PARENT_ID);
+        $parentId = $entity->get('parentId');
 
         $em = $this->entityManager;
 
@@ -116,7 +102,7 @@ class CategoryTree extends Database
             return;
         }
 
-        if (!$entity->isAttributeChanged(self::ATTR_PARENT_ID)) {
+        if (!$entity->isAttributeChanged('parentId')) {
             return;
         }
 
@@ -194,25 +180,5 @@ class CategoryTree extends Database
         }
 
         $mapper->deleteFromDb($entity->getEntityType(), $entity->getId());
-    }
-
-    private function setOrderToEnd(Entity $entity): void
-    {
-        $parentId = $entity->get(self::ATTR_PARENT_ID);
-
-        $where = [self::ATTR_PARENT_ID => $parentId];
-
-        if (!$entity->isNew()) {
-            $where[Attribute::ID . '!='] = $entity->getId();
-        }
-
-        $last = $this
-            ->where($where)
-            ->order(self::ATTR_ORDER, Order::DESC)
-            ->findOne();
-
-        $order = $last ? ($last->get(self::ATTR_ORDER) + 1) : 1;
-
-        $entity->set(self::ATTR_ORDER, $order);
     }
 }

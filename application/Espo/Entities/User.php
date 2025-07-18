@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -40,8 +40,8 @@ class User extends Person
 {
     public const ENTITY_TYPE = 'User';
 
-    public const ATTR_TYPE = 'type';
-    public const ATTR_IS_ACTIVE = 'isActive';
+    public const ATTRIBUTE_TYPE = 'type';
+    public const ATTRIBUTE_IS_ACTIVE = 'isActive';
 
     public const LINK_ACCOUNTS = 'accounts';
     public const LINK_CONTACT = 'contact';

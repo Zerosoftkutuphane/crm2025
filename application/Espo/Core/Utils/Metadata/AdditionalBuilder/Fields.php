@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -50,7 +50,7 @@ class Fields implements AdditionalBuilder
             return;
         }
 
-        $defs = Util::objectToArray($data->fields);
+        $fieldDefinitionList = Util::objectToArray($data->fields);
 
         foreach (get_object_vars($data->entityDefs) as $entityType => $entityDefsItem) {
             if (isset($data->entityDefs->$entityType->collection)) {
@@ -75,10 +75,10 @@ class Fields implements AdditionalBuilder
             }
 
             foreach (get_object_vars($entityDefsItem->fields) as $field => $fieldDefsItem) {
-                $additionalFields = $this->builderHelper->getAdditionalFields(
-                    field: $field,
-                    params: Util::objectToArray($fieldDefsItem),
-                    defs: $defs,
+                $additionalFields = $this->builderHelper->getAdditionalFieldList(
+                    $field,
+                    Util::objectToArray($fieldDefsItem),
+                    $fieldDefinitionList
                 );
 
                 if (!$additionalFields) {

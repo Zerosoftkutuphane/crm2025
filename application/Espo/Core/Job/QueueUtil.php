@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Core\Job;
 
-use Countable;
 use Espo\Core\Job\QueueProcessor\Params;
 use Espo\Core\ORM\EntityManager;
 use Espo\Core\Utils\Config;
@@ -37,9 +36,9 @@ use Espo\Core\Utils\DateTime as DateTimeUtil;
 use Espo\Core\Utils\System;
 use Espo\Core\Job\Job\Status;
 use Espo\Entities\Job as JobEntity;
+use Espo\ORM\Collection;
 
 use DateTime;
-use Espo\ORM\Collection;
 use Espo\ORM\Name\Attribute;
 use Exception;
 use LogicException;
@@ -74,9 +73,9 @@ class QueueUtil
     }
 
     /**
-     * @return Collection<JobEntity>&Countable
+     * @return Collection<JobEntity>
      */
-    public function getPendingJobs(Params $params): Collection
+    public function getPendingJobList(Params $params): Collection
     {
         $queue = $params->getQueue();
         $group = $params->getGroup();

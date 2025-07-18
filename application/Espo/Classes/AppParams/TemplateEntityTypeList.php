@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,27 +30,29 @@
 namespace Espo\Classes\AppParams;
 
 use Espo\Core\Acl;
-use Espo\Core\Exceptions\BadRequest;
-use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\ORM\EntityManager;
 use Espo\Core\Select\SelectBuilderFactory;
 use Espo\Entities\Template;
 use Espo\Tools\App\AppParam;
-use RuntimeException;
 
 /**
  * Returns a list of entity types for which a PDF template exists.
- *
- * @noinspection PhpUnused
  */
 class TemplateEntityTypeList implements AppParam
 {
+    private Acl $acl;
+    private SelectBuilderFactory $selectBuilderFactory;
+    private EntityManager $entityManager;
 
     public function __construct(
-        private Acl $acl,
-        private SelectBuilderFactory $selectBuilderFactory,
-        private EntityManager $entityManager,
-    ) {}
+        Acl $acl,
+        SelectBuilderFactory $selectBuilderFactory,
+        EntityManager $entityManager
+    ) {
+        $this->acl = $acl;
+        $this->selectBuilderFactory = $selectBuilderFactory;
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * @return string[]
@@ -63,19 +65,14 @@ class TemplateEntityTypeList implements AppParam
 
         $list = [];
 
-        try {
-            $query = $this->selectBuilderFactory
-                ->create()
-                ->from(Template::ENTITY_TYPE)
-                ->withAccessControlFilter()
-                ->buildQueryBuilder()
-                ->select(['entityType'])
-                ->where(['status' => Template::STATUS_ACTIVE])
-                ->group(['entityType'])
-                ->build();
-        } catch (BadRequest|Forbidden $e) {
-            throw new RuntimeException('', 0, $e);
-        }
+        $query = $this->selectBuilderFactory
+            ->create()
+            ->from(Template::ENTITY_TYPE)
+            ->withAccessControlFilter()
+            ->buildQueryBuilder()
+            ->select(['entityType'])
+            ->group(['entityType'])
+            ->build();
 
         $templateCollection = $this->entityManager
             ->getRDBRepositoryByClass(Template::class)

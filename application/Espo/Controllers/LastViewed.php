@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,8 +30,6 @@
 namespace Espo\Controllers;
 
 use Espo\Core\Api\Request;
-use Espo\Core\Exceptions\BadRequest;
-use Espo\Core\Exceptions\Forbidden;
 use Espo\Core\Record\SearchParamsFetcher;
 use Espo\Tools\ActionHistory\Service as Service;
 
@@ -45,10 +43,6 @@ class LastViewed
     public function __construct(private SearchParamsFetcher $searchParamsFetcher, private Service $service)
     {}
 
-    /**
-     * @throws BadRequest
-     * @throws Forbidden
-     */
     public function getActionIndex(Request $request): stdClass
     {
         $searchParams = $this->searchParamsFetcher->fetch($request);

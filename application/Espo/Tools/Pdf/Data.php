@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -33,10 +33,10 @@ use stdClass;
 
 class Data
 {
-    /** @var array<string, mixed> */
+    /**
+     * @var array<string, mixed>
+     */
     private $additionalTemplateData = [];
-    /** @var AttachmentWrapper[] */
-    private $attachments = [];
 
     public function getAdditionalTemplateData(): stdClass
     {
@@ -53,28 +53,6 @@ class Data
         );
 
         return $obj;
-    }
-
-    /**
-     * @param AttachmentWrapper[] $attachments
-     */
-    public function withAttachmentsAdded(array $attachments): self
-    {
-        $obj = clone $this;
-
-        foreach ($attachments as $attachment) {
-            $obj->attachments[] = $attachment;
-        }
-
-        return $obj;
-    }
-
-    /**
-     * @return AttachmentWrapper[]
-     */
-    public function getAttachments(): array
-    {
-        return $this->attachments;
     }
 
     public static function create(): self

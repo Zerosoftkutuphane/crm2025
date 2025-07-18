@@ -47,10 +47,6 @@
             "layoutFiltersDisabled": true,
             "layoutListDisabled": true
         },
-        "skipOwn": {
-            "type": "bool",
-            "tooltip": true
-        },
         "createdAt": {
             "type": "datetime",
             "readOnly": true

@@ -7,7 +7,7 @@
             ],
             [
                 {"name": "target"},
-                {"name": "user"}
+                false
             ],
             [
                 {"name": "data"}

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -55,9 +55,12 @@ class Meeting implements AssignmentNotificator
         private UserEnabledChecker $userEnabledChecker,
         private EntityManager $entityManager,
         private User $user,
-        private Metadata $metadata,
+        private Metadata $metadata
     ) {}
 
+    /**
+     * @param MeetingEntity|Call $entity
+     */
     public function process(Entity $entity, Params $params): void
     {
         // Default assignment notifications not needed if stream is enabled.
@@ -88,11 +91,14 @@ class Meeting implements AssignmentNotificator
         $newIds = array_values($newIds);
 
         foreach ($newIds as $id) {
-            $this->processForUser($entity, $id, $params);
+            $this->processForUser($entity, $id);
         }
     }
 
-    private function processForUser(MeetingEntity|Call $entity, string $userId, Params $params): void
+    /**
+     * @param MeetingEntity|Call $entity
+     */
+    private function processForUser(Entity $entity, string $userId): void
     {
         if (!$this->userEnabledChecker->checkAssignment($entity->getEntityType(), $userId)) {
             return;
@@ -109,21 +115,23 @@ class Meeting implements AssignmentNotificator
             return;
         }
 
+        /** @var Notification $notification */
         $notification = $this->entityManager->getRDBRepositoryByClass(Notification::class)->getNew();
 
         $notification
             ->setType(self::NOTIFICATION_TYPE_EVENT_ATTENDEE)
             ->setUserId($userId)
-            ->setRelated(LinkParent::createFromEntity($entity))
-            ->setData([
+            ->setRelated(
+                LinkParent::create($entity->getEntityType(), $entity->getId())
+            )
+            ->setData((object) [
                 'entityType' => $entity->getEntityType(),
                 'entityId' => $entity->getId(),
                 'entityName' => $entity->getName(),
                 'isNew' => $entity->isNew(),
                 'userId' => $this->user->getId(),
                 'userName' => $this->user->getName(),
-            ])
-            ->setActionId($params->getActionId());
+            ]);
 
         $this->entityManager->saveEntity($notification);
     }

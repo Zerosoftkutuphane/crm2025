@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -103,7 +103,8 @@ class Process implements Job
 
     private function notifyFinish(MassActionEntity $entity): void
     {
-        $notification = $this->entityManager->getRDBRepositoryByClass(Notification::class)->getNew();
+        /** @var Notification $notification */
+        $notification = $this->entityManager->getNewEntity(Notification::ENTITY_TYPE);
 
         $message = $this->language->translateLabel('massActionProcessed', 'messages');
 

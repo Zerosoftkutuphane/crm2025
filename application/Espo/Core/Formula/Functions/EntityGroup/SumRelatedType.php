@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,18 +29,16 @@
 
 namespace Espo\Core\Formula\Functions\EntityGroup;
 
-use Espo\Core\Exceptions\BadRequest;
-use Espo\Core\Formula\Exceptions\Error;
+use Espo\Core\Exceptions\Error;
+
 use Espo\Core\Di;
-use Espo\Core\Exceptions\Forbidden;
-use Espo\Core\Formula\Functions\Base;
-use Espo\Core\Formula\Functions\RecordGroup\Util\FindQueryUtil;
+
 use Espo\ORM\Defs\Params\RelationParam;
 use Espo\ORM\Name\Attribute;
 use stdClass;
 use PDO;
 
-class SumRelatedType extends Base implements
+class SumRelatedType extends \Espo\Core\Formula\Functions\Base implements
     Di\EntityManagerAware,
     Di\SelectBuilderFactoryAware
 {
@@ -50,6 +48,7 @@ class SumRelatedType extends Base implements
     /**
      * @return float
      * @throws Error
+     * @throws \Espo\Core\Formula\Exceptions\Error
      */
     public function process(stdClass $item)
     {
@@ -97,14 +96,10 @@ class SumRelatedType extends Base implements
             ->from($foreignEntityType);
 
         if ($filter) {
-            (new FindQueryUtil())->applyFilter($builder, $filter, 3);
+            $builder->withPrimaryFilter($filter);
         }
 
-        try {
-            $queryBuilder = $builder->buildQueryBuilder();
-        } catch (BadRequest|Forbidden $e) {
-            throw new Error($e->getMessage(), $e->getCode(), $e);
-        }
+        $queryBuilder = $builder->buildQueryBuilder();
 
         $queryBuilder->select([
             [$foreignLinkAlias . '.id', 'foreignId'],

@@ -64,14 +64,6 @@
     float: left;
 }
 
-#layout {
-    .cells {
-        .cell {
-            user-select: none;
-        }
-    }
-}
-
 #layout ul.panels ul.cells > li[data-full-width="true"] {
     width: calc(100% - var(--10px));
 }

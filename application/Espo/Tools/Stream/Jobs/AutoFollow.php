@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,14 +31,17 @@ namespace Espo\Tools\Stream\Jobs;
 
 use Espo\Core\Job\Job;
 use Espo\Core\Job\Job\Data;
+
 use Espo\Core\AclManager;
 use Espo\Core\Acl\Exceptions\NotImplemented as AclNotImplemented;
-use Espo\Core\Utils\Util;
+
 use Espo\Entities\Note;
+use Espo\ORM\Collection;
 use Espo\ORM\EntityManager;
-use Espo\Tools\Notification\HookProcessor\Params;
+
 use Espo\Tools\Stream\Service as Service;
 use Espo\Tools\Notification\Service as NotificationService;
+
 use Espo\Entities\User;
 
 /**
@@ -46,12 +49,22 @@ use Espo\Entities\User;
  */
 class AutoFollow implements Job
 {
+    private Service $service;
+    private NotificationService $notificationService;
+    private AclManager $aclManager;
+    private EntityManager $entityManager;
+
     public function __construct(
-        private Service $service,
-        private NotificationService $notificationService,
-        private AclManager $aclManager,
-        private EntityManager $entityManager,
-    ) {}
+        Service $service,
+        NotificationService $notificationService,
+        AclManager $aclManager,
+        EntityManager $entityManager
+    ) {
+        $this->service = $service;
+        $this->notificationService = $notificationService;
+        $this->aclManager = $aclManager;
+        $this->entityManager = $entityManager;
+    }
 
     public function run(Data $data): void
     {
@@ -71,7 +84,8 @@ class AutoFollow implements Job
         }
 
         foreach ($userIdList as $i => $userId) {
-            $user = $this->entityManager->getRDBRepositoryByClass(User::class)->getById($userId);
+            /** @var User|null $user */
+            $user = $this->entityManager->getEntityById(User::ENTITY_TYPE, $userId);
 
             if (!$user) {
                 unset($userIdList[$i]);
@@ -81,7 +95,7 @@ class AutoFollow implements Job
 
             try {
                 $hasAccess = $this->aclManager->checkEntityStream($user, $entity);
-            } catch (AclNotImplemented) {
+            } catch (AclNotImplemented $e) {
                 $hasAccess = false;
             }
 
@@ -106,20 +120,18 @@ class AutoFollow implements Job
 
         $this->service->followEntityMass($entity, $userIdList);
 
-        $notes = $this->entityManager
-            ->getRDBRepositoryByClass(Note::class)
+        /** @var Collection<Note> $noteList */
+        $noteList = $this->entityManager
+            ->getRDBRepository(Note::ENTITY_TYPE)
             ->where([
                 'parentType' => $entityType,
                 'parentId' => $entityId,
             ])
-            ->order('number')
+            ->order('number', 'ASC')
             ->find();
 
-        // Group all notifications.
-        $params = new Params(Util::generateId());
-
-        foreach ($notes as $note) {
-            $this->notificationService->notifyAboutNote($userIdList, $note, $params);
+        foreach ($noteList as $note) {
+            $this->notificationService->notifyAboutNote($userIdList, $note);
         }
     }
 }

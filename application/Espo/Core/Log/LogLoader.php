@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Core\Log;
 
-use Espo\Core\Application\ApplicationParams;
 use Espo\Core\ApplicationState;
 use Espo\Core\Log\Handler\DatabaseHandler;
 use Espo\Core\Log\Handler\EspoFileHandler;
@@ -53,8 +52,7 @@ class LogLoader
         private readonly Config $config,
         private readonly HandlerListLoader $handlerListLoader,
         private readonly EntityManagerProxy $entityManagerProxy,
-        private readonly ApplicationState $applicationState,
-        private readonly ApplicationParams $applicationParams,
+        private readonly ApplicationState $applicationState
     ) {}
 
     public function load(): Log
@@ -79,12 +77,10 @@ class LogLoader
             $log->pushHandler($handler);
         }
 
-        if (!$this->applicationParams->noErrorHandler) {
-            $errorHandler = new MonologErrorHandler($log);
+        $errorHandler = new MonologErrorHandler($log);
 
-            $errorHandler->registerExceptionHandler([], false);
-            $errorHandler->registerErrorHandler([], false);
-        }
+        $errorHandler->registerExceptionHandler([], false);
+        $errorHandler->registerErrorHandler([], false);
 
         return $log;
     }

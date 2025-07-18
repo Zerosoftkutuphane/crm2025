@@ -7,17 +7,6 @@
             </a>
 
             <ul class="dropdown-menu dropdown-menu-with-icons">
-                {{#if showCreate}}
-                    <li>
-                        <a
-                            href="{{createLink}}"
-                            class="action"
-                            data-action="createCategory"
-                        >
-                            <span class="fas fa-folder-plus fa-sm"></span><span class="item-text">{{createCategoryLabel}}</span>
-                        </a>
-                    </li>
-                {{/if}}
                 {{#if showEditLink}}
                 <li>
                     <a

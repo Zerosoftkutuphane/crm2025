@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Core\Notification;
 
-use Espo\Core\Field\LinkParent;
 use Espo\Core\Name\Field;
 use Espo\Core\ORM\Entity as CoreEntity;
 use Espo\ORM\Entity;
@@ -114,21 +113,19 @@ class DefaultAssignmentNotificator implements AssignmentNotificator
             return;
         }
 
-        $notification = $this->entityManager->getRDBRepositoryByClass(Notification::class)->getNew();
-
-        $notification
-            ->setType(Notification::TYPE_ASSIGN)
-            ->setUserId($assignedUserId)
-            ->setData([
+        $this->entityManager->createEntity(Notification::ENTITY_TYPE, [
+            'type' => Notification::TYPE_ASSIGN,
+            'userId' => $assignedUserId,
+            'data' => [
                 'entityType' => $entity->getEntityType(),
                 'entityId' => $entity->getId(),
                 'entityName' => $entity->get(Field::NAME),
                 'isNew' => $entity->isNew(),
                 'userId' => $this->user->getId(),
                 'userName' => $this->user->getName(),
-            ])
-            ->setRelated(LinkParent::createFromEntity($entity));
-
-        $this->entityManager->saveEntity($notification);
+            ],
+            'relatedType' => $entity->getEntityType(),
+            'relatedId' => $entity->getId(),
+        ]);
     }
 }

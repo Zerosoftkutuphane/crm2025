@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,6 @@
 namespace Espo\Modules\Crm\Hooks\Opportunity;
 
 use Espo\Core\Hook\Hook\AfterSave;
-use Espo\Core\ORM\Repository\Option\SaveContext;
 use Espo\Modules\Crm\Entities\Contact;
 use Espo\Modules\Crm\Entities\Opportunity;
 use Espo\ORM\Entity;
@@ -63,10 +62,8 @@ class Contacts implements AfterSave
             ->getRelation($entity, 'contacts');
 
         if (!$contactId) {
-            if ($fetchedContactId && $relation->isRelatedById($fetchedContactId)) {
-                $relation->unrelateById($fetchedContactId, [
-                    SaveContext::NAME => $options->get(SaveContext::NAME),
-                ]);
+            if ($fetchedContactId) {
+                $relation->unrelateById($fetchedContactId);
             }
 
             return;
@@ -88,8 +85,6 @@ class Contacts implements AfterSave
             return;
         }
 
-        $relation->relateById($contactId, [
-            SaveContext::NAME => $options->get(SaveContext::NAME),
-        ]);
+        $relation->relateById($contactId);
     }
 }

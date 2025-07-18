@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -189,6 +189,7 @@ trait SelectingBuilderTrait
     /**
      * @param 'leftJoins'|'joins' $type
      * @todo Support USE INDEX in Join.
+     * $target can be an array for backward compatibility.
      * @param Join|string|Select $target $target
      * @param WhereItem|array<string|int, mixed>|null $conditions
      */
@@ -204,20 +205,13 @@ trait SelectingBuilderTrait
 
         /** @var string|Join|array<int, mixed> $target */
 
-        $joinType = null;
-
         if ($target instanceof Join) {
             $alias = $alias ?? $target->getAlias();
             $conditions = $conditions ?? $target->getConditions();
             $onlyMiddle = $target->isOnlyMiddle();
             $isLateral = $target->isLateral();
-            $joinType = $target->getType();
 
             $target = $target->getTarget();
-        }
-
-        if ($type === 'leftJoins') {
-            $joinType = Join\JoinType::left;
         }
 
         if ($target instanceof Select && !$alias) {
@@ -232,16 +226,12 @@ trait SelectingBuilderTrait
             $noLeftAlias = true;
         }
 
-        $this->params['joins'] ??= [];
+        if (empty($this->params[$type])) {
+            $this->params[$type] = [];
+        }
 
-        // For bc.
-        // @todo Remove in v10.0.
         if (is_array($target)) {
-            // @todo Log deprecation.
-
             $joinList = $target;
-
-            $this->params[$type] ??= [];
 
             foreach ($joinList as $item) {
                 $this->params[$type][] = $item;
@@ -254,7 +244,7 @@ trait SelectingBuilderTrait
             is_null($alias) &&
             is_null($conditions) &&
             is_string($target) &&
-            $this->hasJoinAliasInternal('joins', $target)
+            $this->hasJoinAliasInternal($type, $target)
         ) {
             return $this;
         }
@@ -273,9 +263,25 @@ trait SelectingBuilderTrait
             $params['isLateral'] = true;
         }
 
-        $params['type'] = $joinType;
+        if ($params !== []) {
+            $this->params[$type][] = [$target, $alias, $conditions, $params];
 
-        $this->params['joins'][] = [$target, $alias, $conditions, $params];
+            return $this;
+        }
+
+        if (is_null($alias) && is_null($conditions)) {
+            $this->params[$type][] = $target;
+
+            return $this;
+        }
+
+        if (is_null($conditions)) {
+            $this->params[$type][] = [$target, $alias];
+
+            return $this;
+        }
+
+        $this->params[$type][] = [$target, $alias, $conditions];
 
         return $this;
     }
@@ -293,14 +299,6 @@ trait SelectingBuilderTrait
                 if ($item[1] === $alias) {
                     return true;
                 }
-
-                if (
-                    $item[1] === null &&
-                    $item[0] === $alias &&
-                    lcfirst($item[0]) === $alias
-                ) {
-                    return true;
-                }
             }
         }
 
@@ -308,11 +306,11 @@ trait SelectingBuilderTrait
     }
 
     /**
-     * @deprecated As of v9.2.0. Use `hasJoinAlias`.
+     * Whether an alias is in left joins.
      */
     public function hasLeftJoinAlias(string $alias): bool
     {
-        return $this->hasJoinAlias($alias);
+        return $this->hasJoinAliasInternal('leftJoins', $alias);
     }
 
     /**
@@ -320,9 +318,7 @@ trait SelectingBuilderTrait
      */
     public function hasJoinAlias(string $alias): bool
     {
-        return $this->hasJoinAliasInternal('joins', $alias) ||
-            // For bc.
-            $this->hasJoinAliasInternal('leftJoins', $alias);
+        return $this->hasJoinAliasInternal('joins', $alias);
     }
 
     /**

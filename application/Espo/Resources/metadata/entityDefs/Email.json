@@ -541,12 +541,9 @@
             "readOnly": true,
             "columns": {
                 "inTrash": "inTrash",
-                "folderId": "folderId",
-                "inArchive": "inArchive",
-                "isRead": "isRead"
+                "folderId": "folderId"
             },
-            "customizationDisabled": true,
-            "additionalAttributeList": ["columns"]
+            "customizationDisabled": true
         },
         "assignedUsers": {
             "type": "linkMultiple",

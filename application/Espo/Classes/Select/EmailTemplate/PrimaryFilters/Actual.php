@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.espocrm.com
+ * Website: https://www.EspoCRM.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,6 @@
 
 namespace Espo\Classes\Select\EmailTemplate\PrimaryFilters;
 
-use Espo\Entities\EmailTemplate;
 use Espo\ORM\Query\SelectBuilder;
 
 use Espo\Core\Select\Primary\Filter;
@@ -39,8 +38,7 @@ class Actual implements Filter
     public function apply(SelectBuilder $queryBuilder): void
     {
         $queryBuilder->where([
-            'oneOff!=' => true,
-            'status' => EmailTemplate::STATUS_ACTIVE,
+            'oneOff!=' => true
         ]);
     }
 }
