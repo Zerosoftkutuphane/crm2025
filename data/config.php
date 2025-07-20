@@ -328,7 +328,7 @@ return [
   ],
   'cacheTimestamp' => 1751849507,
   'microtime' => 1751849507.642432,
-  'siteUrl' => 'https://crm.erdemvedilay.com.tr',
+  'siteUrl' => 'https://crm2025.zerosoft.com.tr',
   'fullTextSearchMinLength' => 4,
   'appTimestamp' => 1751849406
 ];
