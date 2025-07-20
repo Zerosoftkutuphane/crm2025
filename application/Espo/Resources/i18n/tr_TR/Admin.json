@@ -211,7 +211,7 @@
     "thousandSeparatorEqualsDecimalMark": "Binlik ayırıcı karakter, ondalık nokta karakteriyle aynı olamaz.",
     "userHasNoEmailAddress": "Kullanıcının email adresi yok.",
     "uninstallConfirmation": "Eklentiyi kaldırmak istediğinizden emin misiniz?",
-    "cronIsNotConfigured": "Zamanlanmış görevler çalışmıyor. Bu nedenle gelen epostalar, bildirimler ve hatırlatıcılar devredışı kalacak. Crontab düzenlemeleri için lütfen şu adresi ziyaret edin. (https://www.EspoCRM.com/documentation/administration/server-configuration/#user-content-setup-a-crontab)",
+    "cronIsNotConfigured": "Zamanlanmış görevler çalışmıyor. Bu nedenle gelen epostalar, bildirimler ve hatırlatıcılar devredışı kalacak. Crontab düzenlemeleri için lütfen şu adresi ziyaret edin. (https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab)",
     "newExtensionVersionIsAvailable": "Yeni {extensionName} sürümü {latestVersion} kullanıma sunuldu.",
     "upgradeVersion": "EspoCRM, **{versiyon}** sürümüne yükseltilecektir. Bu biraz zaman alabileceğinden lütfen sabırlı olun.",
     "upgradeDone": "EspoCRM **{version}** sürüme yükseltildi",

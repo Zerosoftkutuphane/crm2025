@@ -47,7 +47,7 @@
             <div class="cell cell-website col-md-4" style="padding-top: 24px; text-align: right;">
                 <a
                     target="_blank"
-                    href="https://www.EspoCRM.com/documentation/administration/installation/"
+                    href="https://www.espocrm.com/documentation/administration/installation/"
                     style="font-weight: 600;"
                 >{$langs['labels']['Installation Guide']}</a>
             </div>

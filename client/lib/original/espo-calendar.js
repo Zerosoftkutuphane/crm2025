@@ -17,7 +17,7 @@ define("modules/crm/views/calendar/calendar", ["exports", "view", "moment", "ful
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by

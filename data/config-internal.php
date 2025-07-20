@@ -4,8 +4,8 @@ return [
     'host' => 'localhost',
     'port' => '',
     'charset' => NULL,
-    'dbname' => 'u111878875_CrmZerosoft2',
-    'user' => 'u111878875_Admin2',
+    'dbname' => 'u111878875_ZeroCrm	',
+    'user' => 'u111878875_ZeroCrm	',
     'password' => 'Zero123123.',
     'platform' => 'Mysql'
   ],

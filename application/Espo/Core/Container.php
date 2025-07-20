@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -46,7 +46,7 @@ use RuntimeException;
 
 /**
  * DI container for services. Lazy initialization is used. Services are instantiated only once.
- * @see https://docs.EspoCRM.com/development/di/.
+ * @see https://docs.espocrm.com/development/di/.
  */
 class Container implements ContainerInterface
 {

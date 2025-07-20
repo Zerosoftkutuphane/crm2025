@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -69,13 +69,13 @@ return [
     'currencyNoJoinMode' => false,
     'outboundEmailIsShared' => true,
     'outboundEmailFromName' => 'EspoCRM',
-    'outboundEmailFromAddress' => '',
+    'outboundEmailFromAddress' => null,
     'smtpServer' => null,
-    'smtpPort' => 465,
+    'smtpPort' => 587,
     'smtpAuth' => true,
     'smtpSecurity' => 'TLS',
-    'smtpUsername' => '',
-    'smtpPassword' => '',
+    'smtpUsername' => null,
+    'smtpPassword' => null,
     'language' => 'en_US',
     'logger' => [
         'path' => 'data/logs/espo.log',

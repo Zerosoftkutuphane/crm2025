@@ -12,7 +12,7 @@ define("views/admin/layouts/base", ["exports", "view"], function (_exports, _vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -259,7 +259,7 @@ define("views/admin/layouts/rows", ["exports", "views/admin/layouts/base"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -392,7 +392,7 @@ define("views/admin/layouts/side-panels-detail", ["exports", "views/admin/layout
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -706,7 +706,7 @@ define("views/admin/dynamic-logic/conditions-string/item-base", ["exports", "vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -865,7 +865,7 @@ define("views/admin/link-manager/modals/edit-params", ["exports", "views/modal",
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -1065,7 +1065,7 @@ define("views/admin/layouts/grid", ["exports", "views/admin/layouts/base"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -1528,7 +1528,7 @@ define("views/admin/layouts/default-page", ["exports", "view"], function (_expor
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -1577,7 +1577,7 @@ define("views/admin/layouts/bottom-panels-detail", ["exports", "views/admin/layo
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -1803,7 +1803,7 @@ define("views/admin/layouts/modals/create", ["exports", "views/modal", "views/re
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -1949,7 +1949,7 @@ define("views/admin/field-manager/detail-fields/attributes", ["exports", "views/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -2041,7 +2041,7 @@ define("views/admin/dynamic-logic/conditions-string/item-operator-only-base", ["
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -2087,7 +2087,7 @@ define("views/admin/dynamic-logic/conditions/field-types/base", ["exports", "vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -2325,7 +2325,7 @@ define("views/settings/edit", ["exports", "views/edit"], function (_exports, _ed
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -2376,7 +2376,7 @@ define("views/settings/record/edit", ["exports", "views/record/edit"], function 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -2434,7 +2434,7 @@ define("views/settings/fields/quick-create-list", ["exports", "views/fields/arra
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -2490,7 +2490,7 @@ define("views/role/record/table", ["exports", "view", "model", "views/fields/enu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -3456,7 +3456,7 @@ define("views/role/record/list", ["exports", "views/record/list"], function (_ex
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -3502,7 +3502,7 @@ define("views/role/record/edit", ["exports", "views/record/edit"], function (_ex
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -3574,7 +3574,7 @@ define("views/role/record/detail", ["exports", "views/record/detail"], function 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -3628,7 +3628,7 @@ define("views/inbound-email/record/detail", ["exports", "views/record/detail"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -3864,7 +3864,7 @@ define("views/admin/index", ["exports", "view"], function (_exports, _view) {
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -3959,7 +3959,7 @@ define("views/admin/index", ["exports", "view"], function (_exports, _view) {
         return v1.order - v2.order;
       });
       const iframeParams = ['version=' + encodeURIComponent(this.getConfig().get('version')), 'css=' + encodeURIComponent(this.getConfig().get('siteUrl') + '/' + this.getThemeManager().getStylesheet())];
-      this.iframeUrl = this.getConfig().get('adminPanelIframeUrl') || 'https://s.EspoCRM.com/';
+      this.iframeUrl = this.getConfig().get('adminPanelIframeUrl') || 'https://s.espocrm.com/';
       if (~this.iframeUrl.indexOf('?')) {
         this.iframeUrl += '&' + iframeParams.join('&');
       } else {
@@ -4070,7 +4070,7 @@ define("views/admin/link-manager/index", ["exports", "view", "views/admin/link-m
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -4372,7 +4372,7 @@ define("views/admin/layouts/list", ["exports", "views/admin/layouts/rows"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -4614,7 +4614,7 @@ define("views/admin/layouts/index", ["exports", "view", "views/admin/layouts/def
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -4968,7 +4968,7 @@ define("views/admin/layouts/detail", ["exports", "views/admin/layouts/grid"], fu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -5284,7 +5284,7 @@ define("views/admin/layouts/bottom-panels-edit", ["exports", "views/admin/layout
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -5330,7 +5330,7 @@ define("views/admin/integrations/edit", ["exports", "view", "model"], function (
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -5510,7 +5510,7 @@ define("views/admin/field-manager/modals/view-details", ["exports", "views/modal
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -5883,7 +5883,7 @@ define("views/admin/field-manager/fields/options", ["exports", "views/fields/arr
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -5957,7 +5957,7 @@ define("views/admin/entity-manager/record/edit-formula", ["exports", "views/reco
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6042,7 +6042,7 @@ define("views/admin/entity-manager/modals/export", ["exports", "views/modal", "m
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6172,7 +6172,7 @@ define("views/admin/entity-manager/fields/primary-filters", ["exports", "views/f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6283,7 +6283,7 @@ define("views/admin/entity-manager/fields/acl-contact-link", ["exports", "views/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6347,7 +6347,7 @@ define("views/admin/dynamic-logic/conditions-string/item-operator-only-date", ["
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6396,7 +6396,7 @@ define("views/admin/dynamic-logic/conditions-string/group-base", ["exports", "vi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6545,7 +6545,7 @@ define("views/admin/dynamic-logic/conditions/group-base", ["exports", "view"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6862,7 +6862,7 @@ define("views/admin/dynamic-logic/conditions/field-types/link-multiple", ["expor
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -6956,7 +6956,7 @@ define("views/email-account/fields/test-send", ["exports", "views/fields/base"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7105,7 +7105,7 @@ define("views/email-account/fields/test-connection", ["exports", "views/fields/b
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7211,7 +7211,7 @@ define("views/email-account/fields/folders", ["exports", "views/fields/array"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7303,7 +7303,7 @@ define("views/email-account/fields/folder", ["exports", "views/fields/base"], fu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7385,7 +7385,7 @@ define("views/templates/event/record/detail", ["exports", "views/record/detail"]
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7466,7 +7466,7 @@ define("views/settings/modals/tab-list-field-add", ["exports", "views/modals/arr
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7562,7 +7562,7 @@ define("views/settings/modals/edit-tab-url", ["exports", "views/modal", "model"]
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7705,7 +7705,7 @@ define("views/settings/modals/edit-tab-group", ["exports", "views/modal", "model
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7816,7 +7816,7 @@ define("views/settings/modals/edit-tab-divider", ["exports", "views/modal", "mod
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7910,7 +7910,7 @@ define("views/settings/fields/time-format", ["exports", "views/fields/enum"], fu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -7955,7 +7955,7 @@ define("views/settings/fields/thousand-separator", ["exports", "views/fields/var
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8013,7 +8013,7 @@ define("views/settings/fields/tab-url", ["exports", "views/fields/url"], functio
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8063,7 +8063,7 @@ define("views/settings/fields/stream-email-with-content-entity-type-list", ["exp
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8114,7 +8114,7 @@ define("views/settings/fields/stream-email-notifications-entity-list", ["exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8165,7 +8165,7 @@ define("views/settings/fields/sms-provider", ["exports", "views/fields/enum"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8213,7 +8213,7 @@ define("views/settings/fields/phone-number-preferred-country-list", ["exports", 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8271,7 +8271,7 @@ define("views/settings/fields/pdf-engine", ["exports", "views/fields/enum"], fun
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8320,7 +8320,7 @@ define("views/settings/fields/outbound-email-from-address", ["exports", "views/f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8384,7 +8384,7 @@ define("views/settings/fields/oidc-teams", ["exports", "views/fields/link-multip
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8435,7 +8435,7 @@ define("views/settings/fields/oidc-redirect-uri", ["exports", "views/fields/varc
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8539,7 +8539,7 @@ define("views/settings/fields/language", ["exports", "views/fields/enum"], funct
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8585,7 +8585,7 @@ define("views/settings/fields/history-entity-list", ["exports", "views/fields/en
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8636,7 +8636,7 @@ define("views/settings/fields/group-tab-list", ["exports", "views/settings/field
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8680,7 +8680,7 @@ define("views/settings/fields/global-search-entity-list", ["exports", "views/fie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8734,7 +8734,7 @@ define("views/settings/fields/fiscal-year-shift", ["exports", "views/fields/enum
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8786,7 +8786,7 @@ define("views/settings/fields/email-address-lookup-entity-type-list", ["exports"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8847,7 +8847,7 @@ define("views/settings/fields/default-currency", ["exports", "views/fields/enum"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8910,7 +8910,7 @@ define("views/settings/fields/date-format", ["exports", "views/fields/enum"], fu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -8956,7 +8956,7 @@ define("views/settings/fields/dashboard-layout", ["exports", "views/fields/base"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9404,7 +9404,7 @@ define("views/settings/fields/currency-rates", ["exports", "views/fields/base"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9489,7 +9489,7 @@ define("views/settings/fields/currency-list", ["exports", "views/fields/multi-en
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9544,7 +9544,7 @@ define("views/settings/fields/calendar-entity-list", ["exports", "views/fields/e
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9595,7 +9595,7 @@ define("views/settings/fields/busy-ranges-entity-list", ["exports", "views/field
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9654,7 +9654,7 @@ define("views/settings/fields/available-reactions", ["exports", "views/fields/ar
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9767,7 +9767,7 @@ define("views/settings/fields/authentication-method", ["exports", "views/fields/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9818,7 +9818,7 @@ define("views/settings/fields/auth-two-fa-method-list", ["exports", "views/field
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9870,7 +9870,7 @@ define("views/settings/fields/assignment-notifications-entity-list", ["exports",
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9926,7 +9926,7 @@ define("views/settings/fields/assignment-email-notifications-entity-list", ["exp
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -9982,7 +9982,7 @@ define("views/settings/fields/address-preview", ["exports", "views/fields/addres
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10046,7 +10046,7 @@ define("views/settings/fields/activities-entity-list", ["exports", "views/fields
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10100,7 +10100,7 @@ define("views/scheduled-job/list", ["exports", "views/list"], function (_exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10164,7 +10164,7 @@ define("views/scheduled-job/record/list", ["exports", "views/record/list"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10209,7 +10209,7 @@ define("views/scheduled-job/record/detail", ["exports", "views/record/detail"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10252,7 +10252,7 @@ define("views/scheduled-job/record/panels/log", ["exports", "views/record/panels
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10300,7 +10300,7 @@ define("views/scheduled-job/fields/scheduling", ["exports", "views/fields/varcha
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10398,7 +10398,7 @@ define("views/scheduled-job/fields/job", ["exports", "views/fields/enum"], funct
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10467,7 +10467,7 @@ define("views/role/list", ["exports", "views/list"], function (_exports, _list) 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10510,7 +10510,7 @@ define("views/role/record/detail-side", ["exports", "views/record/detail-side"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10557,7 +10557,7 @@ define("views/role/record/panels/side", ["exports", "views/record/panels/side"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10600,7 +10600,7 @@ define("views/role/modals/add-field", ["exports", "views/modal"], function (_exp
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10759,7 +10759,7 @@ define("views/role/fields/permission", ["exports", "views/fields/enum"], functio
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10816,7 +10816,7 @@ define("views/portal-role/list", ["exports", "views/list"], function (_exports, 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10859,7 +10859,7 @@ define("views/portal-role/record/table", ["exports", "views/role/record/table"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10936,7 +10936,7 @@ define("views/portal-role/record/list", ["exports", "views/role/record/list"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -10977,7 +10977,7 @@ define("views/portal-role/record/edit", ["exports", "views/role/record/edit"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11021,7 +11021,7 @@ define("views/portal-role/record/detail", ["exports", "views/role/record/detail"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11065,7 +11065,7 @@ define("views/portal/record/list", ["exports", "views/record/list"], function (_
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11108,7 +11108,7 @@ define("views/portal/fields/tab-list", ["exports", "views/settings/fields/tab-li
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11163,7 +11163,7 @@ define("views/portal/fields/quick-create-list", ["exports", "views/settings/fiel
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11211,7 +11211,7 @@ define("views/portal/fields/custom-id", ["exports", "views/fields/varchar"], fun
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11265,7 +11265,7 @@ define("views/lead-capture-log-record/modals/detail", ["exports", "views/modals/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11309,7 +11309,7 @@ define("views/layout-set/layouts", ["exports", "views/admin/layouts/index"], fun
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11408,7 +11408,7 @@ define("views/layout-set/record/list", ["exports", "views/record/list"], functio
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11452,7 +11452,7 @@ define("views/layout-set/fields/layout-list", ["exports", "views/fields/multi-en
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11518,7 +11518,7 @@ define("views/layout-set/fields/edit", ["exports", "views/fields/base"], functio
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11566,7 +11566,7 @@ define("views/inbound-email/record/list", ["exports", "views/record/list"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11613,7 +11613,7 @@ define("views/inbound-email/record/edit", ["exports", "views/record/edit", "view
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11684,7 +11684,7 @@ define("views/inbound-email/fields/test-send", ["exports", "views/email-account/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11741,7 +11741,7 @@ define("views/inbound-email/fields/test-connection", ["exports", "views/email-ac
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11784,7 +11784,7 @@ define("views/inbound-email/fields/target-user-position", ["exports", "views/fie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11865,7 +11865,7 @@ define("views/inbound-email/fields/name", ["exports", "views/fields/varchar"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11918,7 +11918,7 @@ define("views/inbound-email/fields/folders", ["exports", "views/email-account/fi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -11962,7 +11962,7 @@ define("views/inbound-email/fields/folder", ["exports", "views/email-account/fie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12006,7 +12006,7 @@ define("views/inbound-email/fields/email-address", ["exports", "views/fields/ema
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12058,7 +12058,7 @@ define("views/extension/record/row-actions", ["exports", "views/record/row-actio
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12127,7 +12127,7 @@ define("views/extension/record/list", ["exports", "views/record/list"], function
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12175,7 +12175,7 @@ define("views/authentication-provider/record/edit", ["exports", "helpers/misc/au
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12241,7 +12241,7 @@ define("views/authentication-provider/record/detail", ["exports", "views/record/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12306,7 +12306,7 @@ define("views/authentication-provider/fields/method", ["exports", "views/fields/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12359,7 +12359,7 @@ define("views/api-user/list", ["exports", "views/list"], function (_exports, _li
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12406,7 +12406,7 @@ define("views/admin/user-interface", ["exports", "views/settings/record/edit"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12468,7 +12468,7 @@ define("views/admin/sms", ["exports", "views/settings/record/edit"], function (_
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12511,7 +12511,7 @@ define("views/admin/settings", ["exports", "views/settings/record/edit"], functi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12584,7 +12584,7 @@ define("views/admin/outbound-emails", ["exports", "views/settings/record/edit"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12707,7 +12707,7 @@ define("views/admin/notifications", ["exports", "views/settings/record/edit"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12797,7 +12797,7 @@ define("views/admin/jobs-settings", ["exports", "views/settings/record/edit"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12864,7 +12864,7 @@ define("views/admin/inbound-emails", ["exports", "views/settings/record/edit"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12908,7 +12908,7 @@ define("views/admin/currency", ["exports", "views/settings/record/edit"], functi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -12984,7 +12984,7 @@ define("views/admin/authentication", ["exports", "views/settings/record/edit"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13166,7 +13166,7 @@ define("views/admin/upgrade/ready", ["exports", "views/modal"], function (_expor
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13234,7 +13234,7 @@ define("views/admin/upgrade/index", ["exports", "view"], function (_exports, _vi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13263,10 +13263,10 @@ define("views/admin/upgrade/index", ["exports", "view"], function (_exports, _vi
     data() {
       return {
         versionMsg: this.translate('Current version') + ': ' + this.getConfig().get('version'),
-        infoMsg: this.translate('upgradeInfo', 'messages', 'Admin').replace('{url}', 'https://www.EspoCRM.com/documentation/administration/upgrading/'),
+        infoMsg: this.translate('upgradeInfo', 'messages', 'Admin').replace('{url}', 'https://www.espocrm.com/documentation/administration/upgrading/'),
         backupsMsg: this.translate('upgradeBackup', 'messages', 'Admin'),
         upgradeRecommendation: this.translate('upgradeRecommendation', 'messages', 'Admin'),
-        downloadMsg: this.translate('downloadUpgradePackage', 'messages', 'Admin').replace('{url}', 'https://www.EspoCRM.com/download/upgrades')
+        downloadMsg: this.translate('downloadUpgradePackage', 'messages', 'Admin').replace('{url}', 'https://www.espocrm.com/download/upgrades')
       };
     }
     afterRender() {
@@ -13374,7 +13374,7 @@ define("views/admin/upgrade/done", ["exports", "views/modal"], function (_export
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13440,7 +13440,7 @@ define("views/admin/template-manager/index", ["exports", "view"], function (_exp
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13557,7 +13557,7 @@ define("views/admin/template-manager/edit", ["exports", "view", "model"], functi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13755,7 +13755,7 @@ define("views/admin/template-manager/fields/body", ["exports", "views/fields/wys
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13799,7 +13799,7 @@ define("views/admin/system-requirements/index", ["exports", "view"], function (_
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13861,7 +13861,7 @@ define("views/admin/panels/notifications", ["exports", "view"], function (_expor
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -13921,7 +13921,7 @@ define("views/admin/link-manager/modals/edit", ["exports", "views/modal", "model
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -14826,7 +14826,7 @@ define("views/admin/link-manager/fields/foreign-link-entity-type-list", ["export
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -14895,7 +14895,7 @@ define("views/admin/layouts/side-panels-edit", ["exports", "views/admin/layouts/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -14938,7 +14938,7 @@ define("views/admin/layouts/side-panels-edit-small", ["exports", "views/admin/la
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -14981,7 +14981,7 @@ define("views/admin/layouts/side-panels-detail-small", ["exports", "views/admin/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15024,7 +15024,7 @@ define("views/admin/layouts/mass-update", ["exports", "views/admin/layouts/rows"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15148,7 +15148,7 @@ define("views/admin/layouts/list-small", ["exports", "views/admin/layouts/list"]
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15195,7 +15195,7 @@ define("views/admin/layouts/kanban", ["exports", "views/admin/layouts/list"], fu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15270,7 +15270,7 @@ define("views/admin/layouts/filters", ["exports", "views/admin/layouts/rows"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15379,7 +15379,7 @@ define("views/admin/layouts/detail-small", ["exports", "views/admin/layouts/deta
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15420,7 +15420,7 @@ define("views/admin/layouts/detail-convert", ["exports", "views/admin/layouts/de
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15462,7 +15462,7 @@ define("views/admin/layouts/default-side-panel", ["exports", "views/admin/layout
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15659,7 +15659,7 @@ define("views/admin/layouts/bottom-panels-edit-small", ["exports", "views/admin/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15703,7 +15703,7 @@ define("views/admin/layouts/bottom-panels-detail-small", ["exports", "views/admi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15747,7 +15747,7 @@ define("views/admin/layouts/record/edit-attributes", ["exports", "views/record/b
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15825,7 +15825,7 @@ define("views/admin/layouts/modals/panel-attributes", ["exports", "views/modal",
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -15925,7 +15925,7 @@ define("views/admin/layouts/modals/edit-attributes", ["exports", "views/modal", 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16033,7 +16033,7 @@ define("views/admin/layouts/fields/width-complex", ["exports", "views/fields/bas
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16158,7 +16158,7 @@ define("views/admin/label-manager/index", ["exports", "view", "ui/select"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16302,7 +16302,7 @@ define("views/admin/label-manager/edit", ["exports", "view"], function (_exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16563,7 +16563,7 @@ define("views/admin/label-manager/category", ["exports", "view"], function (_exp
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16641,7 +16641,7 @@ define("views/admin/job/list", ["exports", "views/list"], function (_exports, _l
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16699,7 +16699,7 @@ define("views/admin/job/record/list", ["exports", "views/record/list"], function
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16744,7 +16744,7 @@ define("views/admin/job/record/detail-small", ["exports", "views/record/detail"]
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16788,7 +16788,7 @@ define("views/admin/job/modals/detail", ["exports", "views/modals/detail"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16832,7 +16832,7 @@ define("views/admin/job/fields/name", ["exports", "views/fields/varchar"], funct
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16883,7 +16883,7 @@ define("views/admin/integrations/oauth2", ["exports", "views/admin/integrations/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -16934,7 +16934,7 @@ define("views/admin/integrations/index", ["exports", "view"], function (_exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17069,7 +17069,7 @@ define("views/admin/integrations/google-maps", ["exports", "views/admin/integrat
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17111,7 +17111,7 @@ define("views/admin/formula-sandbox/index", ["exports", "model", "view"], functi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17294,7 +17294,7 @@ define("views/admin/formula-sandbox/record/edit", ["exports", "views/record/edit
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17417,7 +17417,7 @@ define("views/admin/formula/modals/add-function", ["exports", "views/modal"], fu
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17458,7 +17458,7 @@ define("views/admin/formula/modals/add-function", ["exports", "views/modal"], fu
         this.trigger('add', target.dataset.value);
       });
       this.headerText = this.translate('Function');
-      this.documentationUrl = 'https://docs.EspoCRM.com/administration/formula/';
+      this.documentationUrl = 'https://docs.espocrm.com/administration/formula/';
       this.functionDataList = this.options.functionDataList || this.getMetadata().get('app.formula.functionList') || [];
     }
   }
@@ -17480,7 +17480,7 @@ define("views/admin/formula/modals/add-attribute", ["exports", "views/modal", "m
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17549,7 +17549,7 @@ define("views/admin/formula/fields/attribute", ["exports", "views/fields/multi-e
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17633,7 +17633,7 @@ define("views/admin/field-manager/list", ["exports", "view", "views/admin/field-
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17801,7 +17801,7 @@ define("views/admin/field-manager/index", ["exports", "view"], function (_export
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -17995,7 +17995,7 @@ define("views/admin/field-manager/header", ["exports", "view"], function (_expor
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -18055,7 +18055,7 @@ define("views/admin/field-manager/edit", ["exports", "view", "model"], function 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -18608,7 +18608,7 @@ define("views/admin/field-manager/modals/add-field", ["exports", "views/modal"],
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -18735,7 +18735,7 @@ define("views/admin/field-manager/fields/source-list", ["exports", "views/fields
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -18784,7 +18784,7 @@ define("views/admin/field-manager/fields/pattern", ["exports", "views/fields/var
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -18832,7 +18832,7 @@ define("views/admin/field-manager/fields/options-with-style", ["exports", "views
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -18935,7 +18935,7 @@ define("views/admin/field-manager/fields/options-reference", ["exports", "views/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19010,7 +19010,7 @@ define("views/admin/field-manager/fields/not-actual-options", ["exports", "views
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19060,7 +19060,7 @@ define("views/admin/field-manager/fields/entity-list", ["exports", "views/fields
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19102,7 +19102,7 @@ define("views/admin/field-manager/fields/dynamic-logic-options", ["exports", "vi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19271,7 +19271,7 @@ define("views/admin/field-manager/fields/dynamic-logic-conditions", ["exports", 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19366,7 +19366,7 @@ define("views/admin/field-manager/fields/currency-default", ["exports", "views/f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19415,7 +19415,7 @@ define("views/admin/field-manager/fields/text/attachment-field", ["exports", "vi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19465,7 +19465,7 @@ define("views/admin/field-manager/fields/phone/default", ["exports", "views/fiel
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19514,7 +19514,7 @@ define("views/admin/field-manager/fields/options/default", ["exports", "views/fi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19592,7 +19592,7 @@ define("views/admin/field-manager/fields/options/default-multi", ["exports", "vi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19673,7 +19673,7 @@ define("views/admin/field-manager/fields/link-multiple/default", ["exports", "vi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19747,7 +19747,7 @@ define("views/admin/field-manager/fields/link/default", ["exports", "views/field
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19814,7 +19814,7 @@ define("views/admin/field-manager/fields/int/max", ["exports", "views/fields/int
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19865,7 +19865,7 @@ define("views/admin/field-manager/fields/foreign/link", ["exports", "views/field
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -19941,7 +19941,7 @@ define("views/admin/field-manager/fields/foreign/field", ["exports", "views/fiel
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20059,7 +20059,7 @@ define("views/admin/field-manager/fields/date/default", ["exports", "views/field
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20115,7 +20115,7 @@ define("views/admin/field-manager/fields/date/after-before", ["exports", "views/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20172,7 +20172,7 @@ define("views/admin/extensions/ready", ["exports", "views/modal"], function (_ex
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20241,7 +20241,7 @@ define("views/admin/extensions/index", ["exports", "view", "helpers/list/select-
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20440,7 +20440,7 @@ define("views/admin/extensions/done", ["exports", "views/modal"], function (_exp
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20505,7 +20505,7 @@ define("views/admin/entity-manager/scope", ["exports", "view", "views/record/det
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20741,7 +20741,7 @@ define("views/admin/entity-manager/index", ["exports", "view", "views/admin/enti
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -20900,7 +20900,7 @@ define("views/admin/entity-manager/formula", ["exports", "view", "model", "views
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -21081,7 +21081,7 @@ define("views/admin/entity-manager/edit", ["exports", "view", "model"], function
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -21697,7 +21697,7 @@ define("views/admin/entity-manager/record/edit", ["exports", "views/record/edit"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -21861,7 +21861,7 @@ define("views/admin/entity-manager/modals/select-icon", ["exports", "views/modal
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -21955,7 +21955,7 @@ define("views/admin/entity-manager/modals/select-formula", ["exports", "views/mo
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22031,7 +22031,7 @@ define("views/admin/entity-manager/fields/icon-class", ["exports", "views/fields
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22095,7 +22095,7 @@ define("views/admin/entity-manager/fields/duplicate-check-field-list", ["exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22152,7 +22152,7 @@ define("views/admin/entity-manager/fields/acl-account-link", ["exports", "views/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22195,7 +22195,7 @@ define("views/admin/dynamic-logic/modals/edit", ["exports", "views/modal"], func
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22271,7 +22271,7 @@ define("views/admin/dynamic-logic/modals/add-field", ["exports", "views/modal", 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22340,7 +22340,7 @@ define("views/admin/dynamic-logic/fields/user-id", ["exports", "views/fields/bas
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22393,7 +22393,7 @@ define("views/admin/dynamic-logic/fields/field", ["exports", "views/fields/multi
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22474,7 +22474,7 @@ define("views/admin/dynamic-logic/conditions-string/item-value-varchar", ["expor
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22527,7 +22527,7 @@ define("views/admin/dynamic-logic/conditions-string/item-value-link", ["exports"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22582,7 +22582,7 @@ define("views/admin/dynamic-logic/conditions-string/item-value-enum", ["exports"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22638,7 +22638,7 @@ define("views/admin/dynamic-logic/conditions-string/item-multiple-values-base", 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22715,7 +22715,7 @@ define("views/admin/dynamic-logic/conditions-string/item-is-today", ["exports", 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22758,7 +22758,7 @@ define("views/admin/dynamic-logic/conditions-string/item-in-past", ["exports", "
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22801,7 +22801,7 @@ define("views/admin/dynamic-logic/conditions-string/item-in-future", ["exports",
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22844,7 +22844,7 @@ define("views/admin/dynamic-logic/conditions-string/group-not", ["exports", "vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22905,7 +22905,7 @@ define("views/admin/dynamic-logic/conditions/or", ["exports", "views/admin/dynam
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -22948,7 +22948,7 @@ define("views/admin/dynamic-logic/conditions/not", ["exports", "views/admin/dyna
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23050,7 +23050,7 @@ define("views/admin/dynamic-logic/conditions/and", ["exports", "views/admin/dyna
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23093,7 +23093,7 @@ define("views/admin/dynamic-logic/conditions/field-types/multi-enum", ["exports"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23155,7 +23155,7 @@ define("views/admin/dynamic-logic/conditions/field-types/link", ["exports", "vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23216,7 +23216,7 @@ define("views/admin/dynamic-logic/conditions/field-types/link-parent", ["exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23318,7 +23318,7 @@ define("views/admin/dynamic-logic/conditions/field-types/enum", ["exports", "vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23380,7 +23380,7 @@ define("views/admin/dynamic-logic/conditions/field-types/date", ["exports", "vie
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23422,7 +23422,7 @@ define("views/admin/dynamic-logic/conditions/field-types/current-user", ["export
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23507,7 +23507,7 @@ define("views/admin/dynamic-logic/conditions/field-types/current-user-teams", ["
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23557,7 +23557,7 @@ define("views/admin/complex-expression/modals/add-function", ["exports", "views/
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23598,7 +23598,7 @@ define("views/admin/complex-expression/modals/add-function", ["exports", "views/
         this.trigger('add', target.dataset.value);
       });
       this.headerText = this.translate('Function');
-      this.documentationUrl = 'https://docs.EspoCRM.com/user-guide/complex-expressions/';
+      this.documentationUrl = 'https://docs.espocrm.com/user-guide/complex-expressions/';
       this.functionDataList = this.options.functionDataList || this.getMetadata().get('app.complexExpression.functionList') || [];
     }
   }
@@ -23619,7 +23619,7 @@ define("views/admin/authentication/fields/test-connection", ["exports", "views/f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23710,7 +23710,7 @@ define("views/admin/auth-token/list", ["exports", "views/list"], function (_expo
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23764,7 +23764,7 @@ define("views/admin/auth-token/record/list", ["exports", "views/record/list"], f
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23862,7 +23862,7 @@ define("views/admin/auth-token/record/detail", ["exports", "views/record/detail"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23906,7 +23906,7 @@ define("views/admin/auth-token/record/detail-small", ["exports", "views/record/d
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -23951,7 +23951,7 @@ define("views/admin/auth-token/record/row-actions/default", ["exports", "views/r
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24026,7 +24026,7 @@ define("views/admin/auth-token/modals/detail", ["exports", "views/modals/detail"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24070,7 +24070,7 @@ define("views/admin/auth-log-record/list", ["exports", "views/list"], function (
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24118,7 +24118,7 @@ define("views/admin/auth-log-record/record/list", ["exports", "views/record/list
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24164,7 +24164,7 @@ define("views/admin/auth-log-record/record/detail", ["exports", "views/record/de
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24208,7 +24208,7 @@ define("views/admin/auth-log-record/record/detail-small", ["exports", "views/rec
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24253,7 +24253,7 @@ define("views/admin/auth-log-record/modals/detail", ["exports", "views/modals/de
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24297,7 +24297,7 @@ define("views/admin/auth-log-record/fields/authentication-method", ["exports", "
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24342,7 +24342,7 @@ define("views/admin/app-secret/fields/value", ["exports", "views/fields/text"], 
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24418,7 +24418,7 @@ define("views/admin/app-log-record/record/list", ["exports", "views/record/list"
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24461,7 +24461,7 @@ define("controllers/role", ["exports", "controllers/record"], function (_exports
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24509,7 +24509,7 @@ define("controllers/portal-role", ["exports", "controllers/record"], function (_
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by
@@ -24561,7 +24561,7 @@ define("controllers/admin", ["exports", "controller", "search-manager", "views/s
    *
    * EspoCRM – Open Source CRM application.
    * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
-   * Website: https://www.EspoCRM.com
+   * Website: https://www.espocrm.com
    *
    * This program is free software: you can redistribute it and/or modify
    * it under the terms of the GNU Affero General Public License as published by

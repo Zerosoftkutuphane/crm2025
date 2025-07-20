@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -428,7 +428,7 @@ class Upgrade implements Command
 
     private function getVersionInfo(?string $toVersion = null): ?stdClass
     {
-        $url = 'https://s.EspoCRM.com/upgrade/next/';
+        $url = 'https://s.espocrm.com/upgrade/next/';
         $url = $this->config->get('upgradeNextVersionUrl', $url);
         $url .= '?fromVersion=' . $this->config->get('version');
 

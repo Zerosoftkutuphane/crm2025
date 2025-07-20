@@ -3,7 +3,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -324,7 +324,7 @@ define('crm:views/dashlets/abstract/chart', ['views/dashlets/abstract/base','lib
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -496,7 +496,7 @@ function (Dep) {
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -695,7 +695,7 @@ define('crm:views/dashlets/sales-by-month', ['crm:views/dashlets/abstract/chart'
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -886,7 +886,7 @@ define('crm:views/dashlets/opportunities-by-stage', ['crm:views/dashlets/abstrac
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by

@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -56,7 +56,7 @@ class ClientManager
     private string $favicon = 'client/img/favicon.svg';
     private string $basePath = '';
     private string $apiUrl = 'api/v1';
-    private string $applicationId = 'EspoCRM';
+    private string $applicationId = 'espocrm';
 
     private string $nonce;
 

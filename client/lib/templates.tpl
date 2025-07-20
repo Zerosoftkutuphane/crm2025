@@ -1353,7 +1353,7 @@ _delimiter_r30t24jlv5s
 res/templates/site/footer.tpl
 <p class="credit small">&copy; 2025
 <a
-    href="https://www.EspoCRM.com"
+    href="https://www.espocrm.com"
     title="Powered by EspoCRM"
     rel="noopener" target="_blank"
     tabindex="-1"
@@ -6636,7 +6636,7 @@ res/templates/admin/system-requirements/index.tpl
         <div class="pull-right">
             <a
                 target="_blank"
-                href="https://docs.EspoCRM.com/administration/server-configuration/"
+                href="https://docs.espocrm.com/administration/server-configuration/"
             ><strong>{{translate 'Configuration Instructions' scope='Admin'}}</strong></a>
         </div>
     </div>

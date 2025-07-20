@@ -4,7 +4,7 @@
  *
  * EspoCRM – Open Source CRM application.
  * Copyright (C) 2014-2025 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
- * Website: https://www.EspoCRM.com
+ * Website: https://www.espocrm.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -37,7 +37,7 @@ use Espo\Core\Binding\Key\NamedClassKey;
  * Default binding for the dependency injection framework. Custom binding should be set up in
  * `Espo\Modules\{ModuleName}\Binding` or `Espo\Custom\Binding`.
  *
- * @link https://docs.EspoCRM.com/development/di/#binding.
+ * @link https://docs.espocrm.com/development/di/#binding.
  */
 class Binding implements BindingProcessor
 {

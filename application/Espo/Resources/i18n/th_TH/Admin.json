@@ -219,7 +219,7 @@
     "extensionInstalled": "ติดตั้งส่วนขยาย {name} {version} แล้ว",
     "installExtension": "ส่วนขยาย {name} {version} พร้อมสำหรับการติดตั้ง",
     "cronIsNotConfigured": "งานตามกำหนดการไม่ทำงาน ดังนั้นอีเมลขาเข้าการแจ้งเตือนและการช่วยเตือนจึงไม่ทำงาน โปรดปฏิบัติตาม",
-    "newVersionIsAvailable": "EspoCRM เวอร์ชันใหม่ {latestVersion} พร้อมใช้งานแล้ว โปรดปฏิบัติตาม [คำแนะนำ] (https://www.EspoCRM.com/documentation",
+    "newVersionIsAvailable": "EspoCRM เวอร์ชันใหม่ {latestVersion} พร้อมใช้งานแล้ว โปรดปฏิบัติตาม [คำแนะนำ] (https://www.espocrm.com/documentation",
     "newExtensionVersionIsAvailable": "มี {extensionName} เวอร์ชันใหม่ {latestVersion}",
     "uninstallConfirmation": "แน่ใจไหมว่าต้องการถอนการติดตั้งส่วนขยายนี้",
     "upgradeInfo": "ตรวจสอบ [เอกสาร] ({url}) เกี่ยวกับวิธีอัปเกรดอินสแตนซ์ EspoCRM ของคุณ",
