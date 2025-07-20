@@ -6,7 +6,7 @@ return [
     'charset' => NULL,
     'dbname' => 'u111878875_ZeroCrm	',
     'user' => 'u111878875_ZeroCrm	',
-    'password' => 'Zero123123.',
+    'password' => 'Zero123123,',
     'platform' => 'Mysql'
   ],
   'smtpPassword' => NULL,
